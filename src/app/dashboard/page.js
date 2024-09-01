@@ -5,13 +5,14 @@ import { useEffect, useState } from 'react';
 import RenderDashboard from '../../../components/Dashboard';
 import Loading from '../loading';
 import DashboardContent from '../../../components/DashboardContent';
-import useUserAndSubscription from '../../../components/UserDetailsSubscription'
+import useUserAndSubscription from '../../../components/UserDetailsSubscription';
 
 export default function Page() {
     const router = useRouter();
-    const [authToken, setAuthToken] = useState(null); // Use null to represent no token initially
-    const [success, setSuccess] = useState(null); // Use null to represent no success status initially
+    const [authToken, setAuthToken] = useState(null);
+    const [success, setSuccess] = useState(null);
     const [error, setError] = useState('');
+
     const fetchAuthToken = async () => {
         try {
             const response = await fetch('/api/validate');
@@ -39,7 +40,7 @@ export default function Page() {
 
     useEffect(() => {
         fetchAuthToken();
-    }, []); // Fetch token only on component mount
+    }, []);
 
     useEffect(() => {
         if (success === false) {
@@ -47,38 +48,35 @@ export default function Page() {
         }
     }, [success, router]);
 
-    if (authToken === null) {
-        return <Loading />; // Show a loading state while fetching the token
-    }
-
-
-
+    // Ensure the hook is always called, even if authToken is null
     const [token, userDetails, email, first_name, last_name, id, img_link,
-        chats, length_chats, subscription, chatbots] = useUserAndSubscription()
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+
+        chats, length_chats, subscription, chatbots] = useUserAndSubscription();
+
+    if (authToken === null) {
+        return <Loading />;
+    }
 
     const data = {
-        token: token,
-        userDetails: userDetails,
-        email: email,
-        first_name: first_name,
-        last_name: last_name,
-        id: id,
-        img_link: img_link,
-        chats: chats,
-        length_chats: length_chats,
-        subscription: subscription,
-        chatbots: chatbots
-
-    }
-
+        token,
+        userDetails,
+        email,
+        first_name,
+        last_name,
+        id,
+        img_link,
+        chats,
+        length_chats,
+        subscription,
+        chatbots
+    };
 
     return (
         <div>
-            <RenderDashboard >
+            <RenderDashboard>
                 <DashboardContent props={data} />
-
             </RenderDashboard>
-
         </div>
     );
 }

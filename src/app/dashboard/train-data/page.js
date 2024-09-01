@@ -55,7 +55,7 @@ export default function Page() {
 
 
     const [token, userDetails, email, first_name, last_name, id, img_link,
-
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         chats, length_chats, subscription, chatbots] = useUserAndSubscription()
 
 

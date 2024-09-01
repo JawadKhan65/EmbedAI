@@ -34,7 +34,7 @@ const FileUpload = ({ props }) => {
 
     useEffect(() => {
         fetchTrainingData();
-    }, [props.chatbots]);
+    }, []);
 
     const handleUpload = async () => {
         if (!file) {

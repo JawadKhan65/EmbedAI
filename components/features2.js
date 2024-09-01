@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 
 import PropTypes from 'prop-types'
+import Image from 'next/image'
 
 const Features2 = (props) => {
   const [activeTab, setActiveTab] = useState(0)
@@ -61,21 +62,21 @@ const Features2 = (props) => {
           </div>
           <div className="features2-image-container">
             {activeTab === 0 && (
-              <img
+              <Image
                 alt={props.feature1ImgAlt}
                 src={props.feature1ImgSrc}
                 className="features2-image1 thq-img-ratio-16-9"
               />
             )}
             {activeTab === 1 && (
-              <img
+              <Image
                 alt={props.feature2ImgAlt}
                 src={props.feature2ImgSrc}
                 className="features2-image2 thq-img-ratio-16-9"
               />
             )}
             {activeTab === 2 && (
-              <img
+              <Image
                 alt={props.feature3ImgAlt}
                 src={props.feature3ImgSrc}
                 className="features2-image3 thq-img-ratio-16-9"

@@ -11,21 +11,21 @@ const Features1 = (props) => {
         <div className="features1-container2 thq-section-max-width">
           <div className="features1-image-container">
             {activeTab === 0 && (
-              <img
+              <Image
                 alt={props.feature1ImgAlt}
                 src={props.feature1ImgSrc}
                 className="features1-image1 thq-img-ratio-16-9"
               />
             )}
             {activeTab === 1 && (
-              <img
+              <Image
                 alt={props.feature2ImgAlt}
                 src={props.feature2ImgSrc}
                 className="features1-image2 thq-img-ratio-16-9"
               />
             )}
             {activeTab === 2 && (
-              <img
+              <Image
                 alt={props.feature3ImgAlt}
                 src={props.feature3ImgSrc}
                 className="features1-image3 thq-img-ratio-16-9"

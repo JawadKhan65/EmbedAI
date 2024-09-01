@@ -3,6 +3,7 @@
 import React from 'react'
 
 import PropTypes from 'prop-types'
+import Image from 'next/image'
 
 const Testimonial = (props) => {
   return (
@@ -23,7 +24,7 @@ const Testimonial = (props) => {
                   className="thq-card testimonial-card1"
                 >
                   <div className="testimonial-container12">
-                    <img
+                    <Image
                       alt={props.author1Alt}
                       src={props.author1Src}
                       className="testimonial-image1"
@@ -50,7 +51,7 @@ const Testimonial = (props) => {
                   className="thq-card testimonial-card2"
                 >
                   <div className="testimonial-container14">
-                    <img
+                    <Image
                       alt={props.author2Alt}
                       src={props.author2Src}
                       className="testimonial-image2"
@@ -77,7 +78,7 @@ const Testimonial = (props) => {
                   className="thq-card testimonial-card3"
                 >
                   <div className="testimonial-container16">
-                    <img
+                    <Image
                       alt={props.author3Alt}
                       src={props.author3Src}
                       className="testimonial-image3"
@@ -104,7 +105,7 @@ const Testimonial = (props) => {
                   className="thq-card testimonial-card4"
                 >
                   <div className="testimonial-container18">
-                    <img
+                    <Image
                       alt={props.author4Alt}
                       src={props.author4Src}
                       className="testimonial-image4"
