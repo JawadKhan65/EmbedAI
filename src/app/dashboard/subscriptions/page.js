@@ -56,12 +56,13 @@ const Page = () => {
 
 
 
-    const { token, userDetails, ... } = useUserAndSubscription();
-    /* eslint-enable react-hooks/rules-of-hooks */
+
     const {
         token,
         userDetails,
         email,
+        /* eslint-enable react-hooks/rules-of-hooks */
+
         first_name,
         last_name,
         id,
@@ -71,8 +72,7 @@ const Page = () => {
         subscription,
         chatbots
     } = useUserAndSubscription();
-    const { token, userDetails, ... } = useUserAndSubscription();
-    /* eslint-enable react-hooks/rules-of-hooks */
+
     const data = {
         token: token,
         userDetails: userDetails,
