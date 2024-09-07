@@ -8,10 +8,28 @@ import {
 import { FaHome, FaStore, FaGripVertical, FaComments, FaRobot, FaUsers, FaLink, FaFileAlt, FaTextHeight, FaQuestionCircle, FaVideo, FaCog, FaMagic, FaSignOutAlt } from 'react-icons/fa';
 import { ChatIcon, AddIcon, InfoOutlineIcon, AttachmentIcon, ChevronDownIcon } from '@chakra-ui/icons';
 
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Sidebar = ({ props }) => {
     const pathname = usePathname()
+    const router = useRouter()
+
+
+    const handleMenuItemClick = (id) => {
+        const currentParams = new URLSearchParams(window.location.search);
+        const currentId = currentParams.get("chatbotid");
+
+        if (currentId !== id) {
+            router.push(`${pathname}?chatbotid=${id}`);
+        }
+    };
+
+    useEffect(() => {
+        if (props.chatbots.length > 0) {
+            handleMenuItemClick(props.chatbots[0]._id);
+        }
+    }, [props.chatbots]);
+
 
 
     const handleLogout = async () => {
@@ -26,12 +44,12 @@ const Sidebar = ({ props }) => {
             const data = await response.json();
 
             if (response.ok) {
-                if (data.success) {
-                    setLogged(false);
-                    router.push('/');
-                } else {
-                    console.error('Logout failed:', data.response || 'Logout failed');
-                }
+
+
+
+                router.push('/register');
+
+
             } else {
                 console.error('HTTP Error:', data.response || 'Failed to logout');
             }
@@ -64,7 +82,7 @@ const Sidebar = ({ props }) => {
                 </Link>
 
                 <Menu>
-                    <MenuButton bg={'cadetblue'} color={'snow'} _hover={{ bg: '#46797a' }} _active={{ bg: '#46797a' }}
+                    <MenuButton bg={'cadetblue'} color={'#FAF9F6'} _hover={{ bg: '#46797a' }} _active={{ bg: '#46797a' }}
 
                         as={Button} rightIcon={<ChevronDownIcon />}>
                         Create Chatbot
@@ -73,7 +91,7 @@ const Sidebar = ({ props }) => {
                         {
                             props.chatbots?.map((chatbot, index) => {
                                 return (
-                                    <MenuItem key={chatbot?._id}>{chatbot?.chatbot_name}</MenuItem>
+                                    <MenuItem onClick={() => handleMenuItemClick(chatbot?._id)} key={chatbot?._id}>{chatbot?.chatbot_name}</MenuItem>
 
                                 )
 
@@ -98,37 +116,37 @@ const Sidebar = ({ props }) => {
                     </MenuList>
                 </Menu>
 
-                <VStack align="start" spacing="4" w="full">
+                <VStack fontWeight={600} align="start" spacing="4" w="full">
                     <Link href="/dashboard" display="flex" alignItems="center" w="full">
                         <Icon
-                            as={FaGripVertical} mr="3" color={pathname === '/dashboard' ? 'snow' : 'black'} />
-                        <Text color={pathname === '/dashboard' ? 'snow' : 'black'}>Dashboard</Text>
+                            as={FaGripVertical} mr="3" color={pathname === '/dashboard' ? '#FAF9F6' : 'black'} />
+                        <Text color={pathname === '/dashboard' ? '#FAF9F6' : 'black'}>Dashboard</Text>
                     </Link>
                     <Link href="/dashboard/conversations" display="flex" alignItems="center" w="full">
                         <Icon
-                            color={pathname === '/dashboard/conversations' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/conversations' ? '#FAF9F6' : 'black'}
 
                             as={ChatIcon} mr="3" />
                         <Text
-                            color={pathname === '/dashboard/conversations' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/conversations' ? '#FAF9F6' : 'black'}
                         >Conversations</Text>
                     </Link>
                     <Link href="/dashboard/test" display="flex" alignItems="center" w="full">
                         <Icon
-                            color={pathname === '/dashboard/test' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/test' ? '#FAF9F6' : 'black'}
 
                             as={FaRobot} mr="3" />
                         <Text
-                            color={pathname === '/dashboard/test' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/test' ? '#FAF9F6' : 'black'}
                         >Test my chatbot</Text>
                     </Link>
                     <Link href="/dashboard/leads" display="flex" alignItems="center" w="full">
                         <Icon
-                            color={pathname === '/dashboard/leads' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/leads' ? '#FAF9F6' : 'black'}
 
                             as={FaUsers} mr="3" />
                         <Text
-                            color={pathname === '/dashboard/leads' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/leads' ? '#FAF9F6' : 'black'}
                         >Leads</Text>
                     </Link>
 
@@ -137,48 +155,48 @@ const Sidebar = ({ props }) => {
                 </VStack>
 
                 <Divider borderColor="gray.600" />
-                <Link href="/dashboard/subscriptions" display="flex" alignItems="center" w="full">
+                <Link fontWeight={600} href="/dashboard/subscriptions" display="flex" alignItems="center" w="full">
                     <Icon
-                        color={pathname === '/dashboard/subscriptions' ? 'snow' : 'black'}
+                        color={pathname === '/dashboard/subscriptions' ? '#FAF9F6' : 'black'}
 
                         as={FaStore} mr="3" />
                     <Text
-                        color={pathname === '/dashboard/subscriptions' ? 'snow' : 'black'}
+                        color={pathname === '/dashboard/subscriptions' ? '#FAF9F6' : 'black'}
                     >Subscription</Text>
                 </Link>
 
                 <Divider borderColor="gray.600" />
 
                 <Text fontSize="lg" mt="4">Training</Text>
-                <VStack align="start" spacing="4" w="full">
+                <VStack fontWeight={600} align="start" spacing="4" w="full">
                     <Link href="/dashboard/train-data" display="flex" alignItems="center" w="full">
                         <Icon
-                            color={pathname === '/dashboard/train-data' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/train-data' ? '#FAF9F6' : 'black'}
 
                             as={AttachmentIcon} mr="3" />
                         <Text
-                            color={pathname === '/dashboard/train-data' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/train-data' ? '#FAF9F6' : 'black'}
                         >Train/Add Data</Text>
                     </Link>
 
 
                     <Link href="qa" display="flex" alignItems="center" w="full">
                         <Icon
-                            color={pathname === '/dashboard/qa' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/qa' ? '#FAF9F6' : 'black'}
 
                             as={InfoOutlineIcon} mr="3" />
                         <Text
-                            color={pathname === '/dashboard/qa' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/qa' ? '#FAF9F6' : 'black'}
 
                         >Q&A</Text>
                     </Link>
                     <Link href="demos" display="flex" alignItems="center" w="full">
                         <Icon
-                            color={pathname === '/dashboard/demos' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/demos' ? '#FAF9F6' : 'black'}
 
                             as={FaVideo} mr="3" />
                         <Text
-                            color={pathname === '/dashboard/demos' ? 'snow' : 'black'}
+                            color={pathname === '/dashboard/demos' ? '#FAF9F6' : 'black'}
 
                         >Videos</Text>
                     </Link>
@@ -200,7 +218,7 @@ const Sidebar = ({ props }) => {
                         <Icon as={FaCog} mr="3" />
                         <Text>Settings</Text>
                     </Link>
-                    <Link onClick={handleLogout} display="flex" alignItems="center" w="full">
+                    <Link onClick={() => handleLogout()} cursor={'pointer'} display="flex" alignItems="center" w="full">
                         <Icon as={FaSignOutAlt} mr="3" />
                         <Text>Logout</Text>
                     </Link>
@@ -212,4 +230,4 @@ const Sidebar = ({ props }) => {
 };
 
 
-export default Sidebar;
+export default React.memo(Sidebar);

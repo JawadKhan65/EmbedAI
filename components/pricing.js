@@ -5,9 +5,8 @@ import useUserAndSubscription from './UserDetailsSubscription';
 import Link from 'next/link';
 const Pricing = (props) => {
   const [isMonthly, setIsMonthly] = useState(true);
-  const [token, userDetails, email, first_name, last_name, id, img_link,
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    chats, length_chats, subscription, chatbots] = useUserAndSubscription()
+  const { token, userDetails, email, first_name, last_name, id, img_link,
+    chats, length_chats, subscription, chatbots } = useUserAndSubscription()
 
   // Use the plans based on the current selection
   const plans = isMonthly ? props.monthlyPlans : props.yearlyPlans;
@@ -44,7 +43,7 @@ const Pricing = (props) => {
           </div>
 
           {/* Plan Cards */}
-          <div className={`pricing-container ${isMonthly ? "pricing-container1" : "pricing-container2"} `}>
+          <div className={`pricing-container1 ${isMonthly ? "pricing-container1" : "pricing-container2"} `}>
             {plans.map((plan, index) => (
               <div key={index} className={`pricing-card `}>
                 <div className={`pricing-price${0 + 10}`}>
@@ -123,7 +122,7 @@ Pricing.defaultProps = {
       name: 'Free Plan',
       price: '$0/month',
       yearlyPrice: '',
-      features: ['100 messages/month', '1 chatbot', '10 training content pieces', '10 leads/month', '1 website integration', 'No API access'],
+      features: ['100 messages/month', '1 chatbot', '10 training content pieces', '1 website integration', 'No API access'],
       action: 'Sign Up',
       isPrimary: false,
     },
@@ -131,7 +130,7 @@ Pricing.defaultProps = {
       name: 'Starter Plan',
       price: '$29/month',
       yearlyPrice: '',
-      features: ['Unlimited messages', '3 chatbots', '100 training content pieces', '50 leads/month', 'Unlimited integrations', 'API access'],
+      features: ['Unlimited messages', '3 chatbots', '100 training content pieces', 'Unlimited integrations', 'API access'],
       action: 'Sign Up',
       isPrimary: false,
     },
@@ -139,7 +138,7 @@ Pricing.defaultProps = {
       name: 'Pro Plan',
       price: '$49/month',
       yearlyPrice: '',
-      features: ['Unlimited messages', '5 chatbots', '300 training content pieces', '150 leads/month', 'Unlimited integrations', 'API access', 'Remove branding'],
+      features: ['Unlimited messages', '5 chatbots', '300 training content pieces', 'Unlimited integrations', 'API access', 'Remove branding'],
       action: 'Get Started',
       isPrimary: true,
     },
@@ -147,7 +146,7 @@ Pricing.defaultProps = {
       name: 'Enterprise Plan',
       price: '$89/month',
       yearlyPrice: '',
-      features: ['Unlimited messages', '7 chatbots', 'Unlimited training content ', '500 leads/month', 'Unlimited integrations', 'API access', 'Remove branding', 'Dedicated support'],
+      features: ['Unlimited messages', '7 chatbots', 'Unlimited training content ', 'Unlimited integrations', 'API access', 'Remove branding', 'Dedicated support'],
       action: 'Contact Us',
       isPrimary: false,
     },
@@ -158,7 +157,7 @@ Pricing.defaultProps = {
       name: 'Free Plan',
       price: '$0/year',
       yearlyPrice: '',
-      features: ['100 messages/month', '1 chatbot', '10 training content pieces', '10 leads/month', '1 website integration', 'No API access'],
+      features: ['100 messages/month', '1 chatbot', '10 training content pieces', '1 website integration', 'No API access'],
       action: 'Sign Up',
       isPrimary: false,
     },
@@ -166,7 +165,7 @@ Pricing.defaultProps = {
       name: 'Starter Plan',
       price: '$348/year',
       yearlyPrice: '',
-      features: ['Unlimited messages', '3 chatbots', '100 training content pieces', '50 leads/month', 'Unlimited integrations', 'API access'],
+      features: ['Unlimited messages', '3 chatbots', '100 training content pieces', 'Unlimited integrations', 'API access'],
       action: 'Sign Up',
       isPrimary: false,
     },
@@ -174,7 +173,7 @@ Pricing.defaultProps = {
       name: 'Pro Plan',
       price: '$588/year',
       yearlyPrice: '',
-      features: ['Unlimited messages', '5 chatbots', '300 training content pieces', '150 leads/month', 'Unlimited integrations', 'API access', 'Remove branding'],
+      features: ['Unlimited messages', '5 chatbots', '300 training content pieces', 'Unlimited integrations', 'API access', 'Remove branding'],
       action: 'Get Started',
       isPrimary: true,
     },
@@ -182,7 +181,7 @@ Pricing.defaultProps = {
       name: 'Enterprise Plan',
       price: '$1068/year',
       yearlyPrice: '',
-      features: ['Unlimited messages', '7 chatbots', 'Unlimited training content ', '500 leads/month', 'Unlimited integrations', 'API access', 'Remove branding', 'Dedicated support'],
+      features: ['Unlimited messages', '7 chatbots', 'Unlimited training content ', 'Unlimited integrations', 'API access', 'Remove branding', 'Dedicated support'],
       action: 'Contact Us',
       isPrimary: false,
     },

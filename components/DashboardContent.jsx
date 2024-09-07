@@ -9,13 +9,42 @@ import { Bar } from 'react-chartjs-2';
 import { FaHome, FaStore, FaGripVertical, FaComments, FaRobot, FaUsers, FaLink, FaFileAlt, FaTextHeight, FaQuestionCircle, FaVideo, FaCog, FaMagic, FaSignOutAlt } from 'react-icons/fa';
 import { ChatIcon, AddIcon, InfoOutlineIcon, AttachmentIcon, ChevronDownIcon } from '@chakra-ui/icons';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { UserContext } from '../context/userdetails';
 import FileUpload from './FileUpload';
 import TopBar from './TopBar';
 
 
+
 const DashboardContent = ({ props }) => {
+    const searchparams = useSearchParams()
+
+    const chatbotid = searchparams.get('chatbotid')
+
+    const [trainingData, setTrainingData] = useState([]);
+
+
+
+    useEffect(() => {
+        const fetchTrainingData = async () => {
+            try {
+                console.log(props.chatbots)
+                const response = await fetch(`/api/dashboard/data?userid=${props.id}&chatbot_id=${chatbotid}`);
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    setTrainingData(data.response);
+                } else {
+                    throw new Error('Failed to fetch training data.');
+                }
+            } catch (error) {
+                console.error('Error fetching training data:', error);
+            }
+        };
+        fetchTrainingData();
+    }, [chatbotid]);
+
+
     // Chart Data
     const chartData = {
         labels: ['Previous Day', 'Today', 'Previous Week', 'This Month'],
@@ -47,11 +76,11 @@ const DashboardContent = ({ props }) => {
                 </Stat>
                 <Stat boxShadow="sm" p="4" borderRadius="md" bg="white">
                     <StatLabel>Total Conversations</StatLabel>
-                    <StatNumber>1</StatNumber>
+                    <StatNumber>{props.length_chats}</StatNumber>
                 </Stat>
                 <Stat boxShadow="sm" p="4" borderRadius="md" bg="white">
                     <StatLabel>Total Training Items</StatLabel>
-                    <StatNumber>0</StatNumber>
+                    <StatNumber>{trainingData.length}</StatNumber>
                 </Stat>
             </SimpleGrid>
 
@@ -65,4 +94,4 @@ const DashboardContent = ({ props }) => {
         </Box>
     );
 };
-export default DashboardContent
+export default React.memo(DashboardContent)

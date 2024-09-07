@@ -1,4 +1,5 @@
 'use client'
+import React from 'react';
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -8,7 +9,7 @@ import DashboardContent from '../../../../components/DashboardContent';
 import useUserAndSubscription from '../../../../components/UserDetailsSubscription';
 import FileUpload from '../../../../components/FileUpload';
 
-export default function Page() {
+const Page = () => {
     const router = useRouter();
     const [authToken, setAuthToken] = useState(null); // Use null to represent no token initially
     const [success, setSuccess] = useState(null); // Use null to represent no success status initially
@@ -40,6 +41,7 @@ export default function Page() {
 
     useEffect(() => {
         fetchAuthToken();
+        console.log('fetchAuthToken')
     }, []); // Fetch token only on component mount
 
     useEffect(() => {
@@ -54,10 +56,19 @@ export default function Page() {
     }
 
 
-    const [token, userDetails, email, first_name, last_name, id, img_link,
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        chats, length_chats, subscription, chatbots] = useUserAndSubscription()
-
+    const {
+        token,
+        userDetails,
+        email,
+        first_name,
+        last_name,
+        id,
+        img_link,
+        chats,
+        length_chats,
+        subscription,
+        chatbots
+    } = useUserAndSubscription();
 
     const data = {
         token: token,
@@ -73,7 +84,7 @@ export default function Page() {
         chatbots: chatbots
 
     }
-    console.log(data)
+    console.log('render')
 
 
     return (
@@ -86,3 +97,5 @@ export default function Page() {
         </div>
     );
 }
+
+export default React.memo(Page)

@@ -1,46 +1,84 @@
-
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Text, VStack, useToast, Button, Progress, Grid, GridItem, Heading } from '@chakra-ui/react';
-import { FaUpload } from 'react-icons/fa';
+import { Box, Text, VStack, useToast, Button, Progress, Grid, GridItem, Heading, Divider, Icon, HStack, Badge } from '@chakra-ui/react';
+import { FaUpload, FaRedo } from 'react-icons/fa';
+import { useSearchParams } from 'next/navigation';
 
 const allowedFileTypes = ['application/pdf', 'text/csv', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'];
 
+// Define tier limits in MB
+const tierLimits = {
+    Free: 5,
+    Basic: 50,
+    Pro: 200,
+    Enterprise: 512
+};
+
 const FileUpload = ({ props }) => {
+    const searchParams = useSearchParams();
+    const chatbotid = searchParams.get('chatbotid');
     const [file, setFile] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [trainingData, setTrainingData] = useState([]);
+    const [userTier, setUserTier] = useState('Free'); // Default tier
+    const [totalFileSize, setTotalFileSize] = useState(0); // To track total file size
     const toast = useToast();
     const fileInputRef = useRef(null);
+    const [fileSize, setFileSize] = useState(0);
 
     const handleTrainClick = async () => {
-        console.log('Train clicked: It should hit an API that sends user"s id');
+        console.log('Train clicked: It should hit an API that sends user\'s id');
     };
-    //  move to context
 
-    const fetchTrainingData = async () => {
-        try {
-            const response = await fetch(`/api/dashboard/data?userid=${props.id}&chatbot_id=${props.chatbots[0]?._id}`);
-            const data = await response.json();
-
-            if (response.ok && data.success) {
-                setTrainingData(data.response);
-            } else {
-                throw new Error('Failed to fetch training data.');
-            }
-        } catch (error) {
-            console.error('Error fetching training data:', error);
-        }
+    const handleRefresh = () => {
+        window.location.reload();
     };
 
     useEffect(() => {
+        const fetchTrainingData = async () => {
+            try {
+                const response = await fetch(`/api/dashboard/data?userid=${props.id}&chatbot_id=${chatbotid}`);
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    setTrainingData(data.response);
+                    const totalSize = data.response.reduce((sum, item) => sum + parseFloat(item.file_size), 0);
+                    setTotalFileSize(totalSize);
+                } else {
+                    throw new Error('Failed to fetch training data.');
+                }
+            } catch (error) {
+                console.error('Error fetching training data:', error);
+            }
+        };
         fetchTrainingData();
-    }, []);
+    }, [chatbotid, props.id]);
+
+    useEffect(() => {
+        // Update userTier based on props
+        setUserTier(props.subscription.type);
+    }, [props.subscription]);
 
     const handleUpload = async () => {
         if (!file) {
             toast({
                 title: 'No file selected.',
                 status: 'warning',
+                duration: 3000,
+                isClosable: true,
+                position: 'top-right',
+            });
+            return;
+        }
+
+        // Check if the total file size exceeds the limit based on the user's tier
+        const totalSizeAfterUpload = totalFileSize + parseFloat(fileSize);
+        const tierLimit = tierLimits[userTier];
+
+        if (totalSizeAfterUpload > tierLimit) {
+            toast({
+                title: 'File size limit exceeded.',
+                description: `Your tier (${userTier}) allows up to ${tierLimit} MB. Please upgrade your subscription to upload more files.`,
+                status: 'error',
                 duration: 3000,
                 isClosable: true,
                 position: 'top-right',
@@ -72,9 +110,10 @@ const FileUpload = ({ props }) => {
 
                 const storeSource = {
                     userid: props.id,
-                    chatbot_id: props.chatbots[0]._id,
+                    chatbot_id: chatbotid,
                     source_url: data.url,
                     file_name: file.name,
+                    file_size: fileSize, // Save the file size to the database
                     isTrained: false,
                 };
 
@@ -86,6 +125,7 @@ const FileUpload = ({ props }) => {
                     body: JSON.stringify(storeSource),
                 });
 
+                setTotalFileSize(totalSizeAfterUpload); // Update the total file size
                 setFile(null); // Clear the selected file after successful upload
             } else {
                 throw new Error(data.error);
@@ -108,6 +148,7 @@ const FileUpload = ({ props }) => {
         if (selectedFile) {
             if (allowedFileTypes.includes(selectedFile.type)) {
                 setFile(selectedFile);
+                setFileSize((selectedFile.size / 1024 / 1024).toFixed(2));
                 toast({
                     title: 'File selected.',
                     description: `${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2)} MB)`,
@@ -180,7 +221,7 @@ const FileUpload = ({ props }) => {
             </Box>
 
             {file && (
-                <Box borderWidth="1px" borderRadius="sm" borderColor="gray.300" p={4} bg="white">
+                <Box borderWidth="1px" borderRadius="md" borderColor="gray.300" p={4} bg="white">
                     <Grid templateColumns="repeat(2, 1fr)" gap={4}>
                         <GridItem bg="#64ede5" p={4} borderRadius="md" colSpan={1}>
                             <Text fontWeight="bold">File Name:</Text>
@@ -200,42 +241,55 @@ const FileUpload = ({ props }) => {
             <Text color="gray.500" fontSize="sm" mt={1}>
                 Max file size: 30 MB
             </Text>
+            <Divider height={8} p={2} ></Divider>
 
             <Box>
-                <Heading size="md" color="gray.500" mt={4}>
-                    Your Training Data
-                </Heading>
+                <HStack>
+                    <Heading size="md" color="gray.500" m={4}>
+                        Your Training Data
+                    </Heading>
+                    <Badge cursor={'pointer'} onClick={handleRefresh} borderRadius={'md'} p={2} colorScheme={'teal'}>
+                        <HStack>
+                            <FaRedo />
+                            <Text>
+                                Refresh
+                            </Text>
+                        </HStack>
+                    </Badge>
+                </HStack>
 
-                <Box mt={2} borderWidth="2px" borderRadius="md" borderColor="gray.300" p={4} bg="white">
-                    {trainingData.length > 0 ? (
-                        trainingData.map((data, index) => (
-                            <Grid mt={2} key={index} templateColumns="repeat(2, 1fr)" gap={4} mb={2}>
-                                <GridItem bg="#64eddf" p={4} borderRadius="md" colSpan={1}>
-                                    <Text fontWeight="bold">File:</Text>
-                                    <Text>{data.file_name}</Text>
+                {trainingData.length === 0 ? (
+                    <Text>No training data available.</Text>
+                ) : (
+                    trainingData.map((item, index) => (
+                        <Box
+                            key={index}
+                            borderWidth="1px"
+                            borderRadius="md"
+                            borderColor="gray.300"
+                            p={4}
+                            mb={4}
+                            bg="white"
+                        >
+                            <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+                                <GridItem bg="#64ede5" p={4} borderRadius="md">
+                                    <Text fontWeight="bold">File Name:</Text>
+                                    <Text>{item.file_name}</Text>
                                 </GridItem>
-                                <GridItem bg="#64eed9" p={4} borderRadius="md" colSpan={1}>
-                                    <Button
-                                        isTruncated={true}
-                                        onClick={handleTrainClick}
-                                        width="full"
-                                        bg={data.isTrained ? 'green.400' : 'cadetblue'}
-                                        color="snow"
-                                        _hover={{ bg: data.isTrained ? 'green.600' : '#46797a' }}
-                                        _active={{ bg: data.isTrained ? 'green.600' : '#46797a' }}
-                                        isDisabled={data.isTrained}
-                                    >
-                                        {data.isTrained ? 'Trained' : 'Train'}
-                                    </Button>
+                                <GridItem bg="#64edd9" p={4} borderRadius="md">
+                                    <Text fontWeight="bold">File Size:</Text>
+                                    <Text>{item.file_size} MB</Text>
                                 </GridItem>
                             </Grid>
-                        ))
-                    ) : (
-                        <Text color="gray.500" fontSize="sm">
-                            No training data available.
-                        </Text>
-                    )}
-                </Box>
+                            <Button isDisabled={item.isTrained} mt={2} onClick={handleTrainClick} bg="#64ede5" _hover={{ bg: '#64edd9' }}>
+                                {item.isTrained ? "Trained" : "Train"}
+                            </Button>
+                        </Box>
+                    ))
+                )}
+            </Box>
+
+            <Box>
             </Box>
         </VStack>
     );

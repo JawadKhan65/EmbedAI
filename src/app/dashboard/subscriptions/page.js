@@ -1,4 +1,5 @@
 'use client'
+import React from 'react';
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -9,7 +10,7 @@ import useUserAndSubscription from '../../../../components/UserDetailsSubscripti
 import FileUpload from '../../../../components/FileUpload';
 import Pricing from '../../../../components/pricing';
 
-export default function Page() {
+const Page = () => {
     const router = useRouter();
     const [authToken, setAuthToken] = useState(null); // Use null to represent no token initially
     const [success, setSuccess] = useState(null); // Use null to represent no success status initially
@@ -55,9 +56,20 @@ export default function Page() {
 
 
 
-    const [token, userDetails, email, first_name, last_name, id, img_link,
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        chats, length_chats, subscription, chatbots] = useUserAndSubscription()
+
+    const {
+        token,
+        userDetails,
+        email,
+        first_name,
+        last_name,
+        id,
+        img_link,
+        chats,
+        length_chats,
+        subscription,
+        chatbots
+    } = useUserAndSubscription();
 
     const data = {
         token: token,
@@ -85,3 +97,5 @@ export default function Page() {
         </div>
     );
 }
+
+export default React.memo(Page)

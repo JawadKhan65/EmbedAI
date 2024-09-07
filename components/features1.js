@@ -1,9 +1,8 @@
 'use client'
 import React, { useState } from 'react'
-
+import automation from "../public/Content/Automation.png"
 import PropTypes from 'prop-types'
-import Image from 'next/image'
-
+import Image from "next/image"
 const Features1 = (props) => {
   const [activeTab, setActiveTab] = useState(0)
   return (
@@ -11,27 +10,15 @@ const Features1 = (props) => {
       <div className="thq-section-padding about">
         <div className="features1-container2 thq-section-max-width">
           <div className="features1-image-container">
-            {activeTab === 0 && (
-              <Image
-                alt={props.feature1ImgAlt}
-                src={props.feature1ImgSrc}
-                className="features1-image1 thq-img-ratio-16-9"
-              />
-            )}
-            {activeTab === 1 && (
-              <Image
-                alt={props.feature2ImgAlt}
-                src={props.feature2ImgSrc}
-                className="features1-image2 thq-img-ratio-16-9"
-              />
-            )}
-            {activeTab === 2 && (
-              <Image
-                alt={props.feature3ImgAlt}
-                src={props.feature3ImgSrc}
-                className="features1-image3 thq-img-ratio-16-9"
-              />
-            )}
+
+            <Image
+
+
+              alt={props.feature1ImgAlt}
+              src={props.feature1ImgSrc}
+              className="features1-image1 "
+            />
+
           </div>
           <div className="features1-tabs-menu">
             <div
@@ -93,7 +80,7 @@ const Features1 = (props) => {
 Features1.defaultProps = {
   feature1Title: 'AI-Enhanced Chatbot',
   feature1Description: 'Leverage cutting-edge AI to deliver prompt and precise responses, ensuring superior customer engagement and satisfaction.',
-  feature1ImgSrc: 'https://images.unsplash.com/photo-1456324504439-367cee3b3c32?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxNnw&ixlib=rb-4.0.3&q=80&w=1080',
+  feature1ImgSrc: automation,
   feature1ImgAlt: 'AI-Enhanced Customer Support Chatbot',
 
   feature2Title: 'Round-the-Clock Support',

@@ -1,9 +1,8 @@
 'use client'
 import React, { useState } from 'react'
-
+import Agent from "../public/Content/Agents.png"
 import PropTypes from 'prop-types'
-import Image from 'next/image'
-
+import Image from "next/image"
 const Features2 = (props) => {
   const [activeTab, setActiveTab] = useState(0)
   return (
@@ -60,28 +59,16 @@ const Features2 = (props) => {
               </div>
             </div>
           </div>
-          <div className="features2-image-container">
-            {activeTab === 0 && (
-              <Image
-                alt={props.feature1ImgAlt}
-                src={props.feature1ImgSrc}
-                className="features2-image1 thq-img-ratio-16-9"
-              />
-            )}
-            {activeTab === 1 && (
-              <Image
-                alt={props.feature2ImgAlt}
-                src={props.feature2ImgSrc}
-                className="features2-image2 thq-img-ratio-16-9"
-              />
-            )}
-            {activeTab === 2 && (
-              <Image
-                alt={props.feature3ImgAlt}
-                src={props.feature3ImgSrc}
-                className="features2-image3 thq-img-ratio-16-9"
-              />
-            )}
+          <div className="features1-image-container">
+
+            <Image
+              alt={props.feature1ImgAlt}
+              src={props.feature1ImgSrc}
+              className="features2-image1 "
+            />
+
+
+
           </div>
         </div>
       </div>
@@ -93,7 +80,7 @@ const Features2 = (props) => {
 Features2.defaultProps = {
   feature1Title: 'Advanced Customizable Chatbots',
   feature1Description: 'Empower your business with our highly adaptable chatbots, tailored to meet your specific needs. Integrate seamlessly with your data files, PDF documents, and graph queries to enhance user interactions and operational efficiency.',
-  feature1ImgSrc: 'https://images.unsplash.com/photo-1484981138541-3d074aa97716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxNXw&ixlib=rb-4.0.3&q=80&w=1080',
+  feature1ImgSrc: Agent,
   feature1ImgAlt: 'Advanced Customizable Chatbots',
 
   feature2Title: 'Seamless System Integration',

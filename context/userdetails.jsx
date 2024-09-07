@@ -1,5 +1,5 @@
-'use client'
-import { useEffect, createContext, useState } from "react";
+'use client';
+import { useEffect, createContext, useState, useMemo } from "react";
 import { decodeToken } from "../lib/utils";
 
 export const UserContext = createContext();
@@ -16,6 +16,7 @@ export const UserProvider = ({ children }) => {
     const [length_chats, setLengthChats] = useState(0);
     const [subscription, setSubscription] = useState({});
     const [chatbots, setChatbots] = useState([]);
+
     const fetchToken = async () => {
         try {
             const response = await fetch('/api/validate');
@@ -27,8 +28,10 @@ export const UserProvider = ({ children }) => {
             }
         } catch (err) {
             console.error('Error fetching auth token:', err);
+            setToken("ERROR");
         }
     };
+
     const fetchUserDetails = async () => {
         try {
             const response = await decodeToken(token.response);
@@ -42,7 +45,6 @@ export const UserProvider = ({ children }) => {
             console.error('Error fetching user details:', error);
         }
     };
-
 
     const fetchChats = async () => {
         try {
@@ -60,6 +62,7 @@ export const UserProvider = ({ children }) => {
             console.error('Error fetching chats:', error);
         }
     };
+
     const fetchSubscriptionDetails = async () => {
         try {
             const response = await fetch(`/api/dashboard/user-details?userid=${id}`);
@@ -74,9 +77,6 @@ export const UserProvider = ({ children }) => {
             console.error('Error getting user dashboard details:', error);
         }
     };
-
-
-
 
     useEffect(() => {
         const initializeUser = async () => {
@@ -99,14 +99,14 @@ export const UserProvider = ({ children }) => {
         }
     }, [id]);
 
-
-
+    const contextValue = useMemo(() => ({
+        token, userDetails, email, first_name, last_name, id, img_link,
+        chats, length_chats, subscription, chatbots
+    }), [token, userDetails, email, first_name, last_name, id, img_link,
+        chats, length_chats, subscription, chatbots]);
 
     return (
-        <UserContext.Provider value={[
-            token, userDetails, email, first_name, last_name, id, img_link,
-            chats, length_chats, subscription, chatbots
-        ]}>
+        <UserContext.Provider value={contextValue}>
             {children}
         </UserContext.Provider>
     );

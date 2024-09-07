@@ -1,18 +1,20 @@
 'use client'
 import React from 'react';
+
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import RenderDashboard from '../../../components/Dashboard';
-import Loading from '../loading';
-import DashboardContent from '../../../components/DashboardContent';
-import useUserAndSubscription from '../../../components/UserDetailsSubscription';
+import RenderDashboard from '../../../../components/Dashboard';
+import Loading from '@/app/loading';
+import DashboardContent from '../../../../components/DashboardContent';
+import useUserAndSubscription from '../../../../components/UserDetailsSubscription';
+import FileUpload from '../../../../components/FileUpload';
+import Chatbox from '../../../../components/ChatBox';
 
 const Page = () => {
     const router = useRouter();
-    const [authToken, setAuthToken] = useState(null);
-    const [success, setSuccess] = useState(null);
+    const [authToken, setAuthToken] = useState(null); // Use null to represent no token initially
+    const [success, setSuccess] = useState(null); // Use null to represent no success status initially
     const [error, setError] = useState('');
-
     const fetchAuthToken = async () => {
         try {
             const response = await fetch('/api/validate');
@@ -40,7 +42,8 @@ const Page = () => {
 
     useEffect(() => {
         fetchAuthToken();
-    }, []);
+        console.log('fetchAuthToken')
+    }, []); // Fetch token only on component mount
 
     useEffect(() => {
         if (success === false) {
@@ -48,7 +51,11 @@ const Page = () => {
         }
     }, [success, router]);
 
-    // Ensure the hook is always called, even if authToken is null
+    if (authToken === null) {
+        return <Loading />; // Show a loading state while fetching the token
+
+    }
+
 
     const {
         token,
@@ -64,30 +71,30 @@ const Page = () => {
         chatbots
     } = useUserAndSubscription();
 
-
-    if (authToken === null) {
-        return <Loading />;
-    }
-
     const data = {
-        token,
-        userDetails,
-        email,
-        first_name,
-        last_name,
-        id,
-        img_link,
-        chats,
-        length_chats,
-        subscription,
-        chatbots
-    };
+        token: token,
+        userDetails: userDetails,
+        email: email,
+        first_name: first_name,
+        last_name: last_name,
+        id: id,
+        img_link: img_link,
+        chats: chats,
+        length_chats: length_chats,
+        subscription: subscription,
+        chatbots: chatbots
+
+    }
+    console.log('render')
+
 
     return (
         <div>
-            <RenderDashboard>
-                <DashboardContent props={data} />
+            <RenderDashboard >
+                <Chatbox props={data} />
+
             </RenderDashboard>
+
         </div>
     );
 }

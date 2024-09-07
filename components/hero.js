@@ -1,9 +1,19 @@
 'use client'
 import React from 'react'
+import banner1 from "../public/banners/banner1.png"
+import banner2 from "../public/banners/banner2.png"
+import banner3 from "../public/banners/banner3.png"
+import banner4 from "../public/banners/banner4.png"
+import banner5 from "../public/banners/banner5.png"
+import banner6 from "../public/banners/banner6.png"
+import banner7 from "../public/banners/banner7.png"
+import banner8 from "../public/banners/banner8.png"
+import banner9 from "../public/banners/banner9.png"
+import banner10 from "../public/banners/banner10.png"
+import banner11 from "../public/banners/banner11.png"
 
-
+import Image from 'next/image'
 import PropTypes from 'prop-types'
-import Image from 'next/image';
 
 const Hero = (props) => {
   const handleScrollPricing = () => {
@@ -34,31 +44,43 @@ const Hero = (props) => {
           <div className="hero-row-container1 thq-animated-group-container-horizontal thq-mask-image-horizontal">
             <div className="thq-animated-group-horizontal">
               <Image
+                height={250}
+                width={550}
                 alt={props.image1Alt}
                 src={props.image1Src}
                 className="hero-placeholder-image10 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image2Alt}
                 src={props.image2Src}
                 className="hero-placeholder-image11 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image3Alt}
                 src={props.image3Src}
                 className="hero-placeholder-image12 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image4Alt}
                 src={props.image4Src}
                 className="hero-placeholder-image13 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image5Alt}
                 src={props.image5Src}
                 className="hero-placeholder-image14 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image6Alt}
                 src={props.image6Src}
                 className="hero-placeholder-image15 thq-Image-scale thq-Image-ratio-1-1"
@@ -66,110 +88,130 @@ const Hero = (props) => {
             </div>
             <div className="thq-animated-group-horizontal">
               <Image
+                height={250}
+                width={350}
                 alt={props.image1Alt}
                 src={props.image1Src}
                 className="hero-placeholder-image16 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image2Alt}
                 src={props.image2Src}
                 className="hero-placeholder-image17 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image3Alt}
                 src={props.image3Src}
                 className="hero-placeholder-image18 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image4Alt}
                 src={props.image4Src}
                 className="hero-placeholder-image19 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
+                alt={props.image7Alt}
+                src={props.image7Src}
+                className="hero-placeholder-image19 thq-Image-scale thq-Image-ratio-1-1"
+              />
+              <Image
+                height={250}
+                width={350}
                 alt={props.image5Alt}
                 src={props.image5Src}
                 className="hero-placeholder-image20 thq-Image-scale thq-Image-ratio-1-1"
               />
-              <Image
-                alt="Embed AI"
-                src="https://images.unsplash.com/photo-1534312527009-56c7016453e6?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDIxfHxhYnN0cmFjdHxlbnwwfHx8fDE3MTA4NzA5MzB8MA&amp;ixlib=rb-4.0.3&amp;w=1500"
-                className="hero-placeholder-image21 thq-Image-scale thq-Image-ratio-1-1"
-              />
+
             </div>
           </div>
           <div className="hero-row-container2 thq-animated-group-container-horizontal thq-mask-image-horizontal">
             <div className="thq-animated-group-horizontal-reverse">
+
               <Image
-                alt={props.image7Alt}
-                src={props.image7Src}
-                className="hero-placeholder-image22 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
+                height={250}
+                width={350}
                 alt={props.image8Alt}
                 src={props.image8Src}
                 className="hero-placeholder-image23 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image9Alt}
                 src={props.image9Src}
                 className="hero-placeholder-image24 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image10Alt}
                 src={props.image10Src}
                 className="hero-placeholder-image25 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image11Alt}
                 src={props.image11Src}
                 className="hero-placeholder-image26 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
-                alt={props.image12Alt}
-                src={props.image12Src}
+                height={250}
+                width={350}
+                alt={props.image6Alt}
+                src={props.image6Src}
                 className="hero-placeholder-image27 thq-Image-scale thq-Image-ratio-1-1"
               />
             </div>
             <div className="thq-animated-group-horizontal-reverse">
               <Image
+                height={250}
+                width={350}
                 alt={props.image7Alt}
                 src={props.image7Src}
                 className="hero-placeholder-image28 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image8Alt}
                 src={props.image8Src}
                 className="hero-placeholder-image29 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image9Alt}
                 src={props.image9Src}
                 className="hero-placeholder-image30 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image10Alt}
                 src={props.image10Src}
                 className="hero-placeholder-image31 thq-Image-scale thq-Image-ratio-1-1"
               />
               <Image
+                height={250}
+                width={350}
                 alt={props.image11Alt}
                 src={props.image11Src}
                 className="hero-placeholder-image32 thq-Image-scale thq-Image-ratio-1-1"
               />
-              <Image
-                alt="Embed AI"
-                src="https://images.unsplash.com/photo-1568214379698-8aeb8c6c6ac8?ixid=M3w5MTMyMXwwfDF8c2VhcmNofDEyfHxncmFmaWN8ZW58MHx8fHwxNzE1Nzk0OTk5fDA&amp;ixlib=rb-4.0.3&amp;w=1500"
-                className="hero-placeholder-image33 thq-Image-scale thq-Image-ratio-1-1"
-              />
+
             </div>
           </div>
         </div>
-        <div>
-          <div className="hero-container2">
 
-
-          </div>
-        </div>
       </div>
 
     </>
@@ -177,48 +219,37 @@ const Hero = (props) => {
 }
 
 Hero.defaultProps = {
-  image3Src:
-    'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxNHw&ixlib=rb-4.0.3&q=80&w=1080',
+
+  image1Src: banner1,
+  image2Src: banner2,
+  image3Src: banner3,
+  image4Src: banner4,
+  image5Src: banner5,
+  image6Src: banner6,
+  image7Src: banner7,
+  image8Src: banner8,
+  image9Src: banner9,
+  image10Src: banner10,
+  image11Src: banner11,
+
+
   image8Alt: 'Embed AI',
-  image2Src:
-    'https://images.unsplash.com/photo-1453749024858-4bca89bd9edc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxNXw&ixlib=rb-4.0.3&q=80&w=1080',
   image6Alt: 'Embed AI',
-  image11Src:
-    'https://images.unsplash.com/photo-1543269865-cbf427effbad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxNnw&ixlib=rb-4.0.3&q=80&w=1080',
   image5Alt: 'Embed AI',
   image1Alt: 'Chatbot in action',
-  image7Src:
-    'https://images.unsplash.com/photo-1471086569966-db3eebc25a59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxN3w&ixlib=rb-4.0.3&q=80&w=1080',
   image7Alt: 'Embed AI',
-  image12Alt: 'Embed AI',
   image2Alt: 'Embed AI',
-  image6Src:
-    'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxN3w&ixlib=rb-4.0.3&q=80&w=1080',
-  image12Src:
-    'https://images.unsplash.com/photo-1432821596592-e2c18b78144f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxOHw&ixlib=rb-4.0.3&q=80&w=1080',
   image3Alt: 'Embed AI',
-  image9Src:
-    'https://images.unsplash.com/photo-1459257831348-f0cdd359235f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxOHw&ixlib=rb-4.0.3&q=80&w=1080',
   image11Alt: 'Embed AI',
   action2: 'Pricing',
   action1: 'Get Started',
-  image8Src:
-    'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxOHw&ixlib=rb-4.0.3&q=80&w=1080',
-  image5Src:
-    'https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxOHw&ixlib=rb-4.0.3&q=80&w=1080',
-  image4Src:
-    'https://images.unsplash.com/photo-1490818387583-1baba5e638af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxOXw&ixlib=rb-4.0.3&q=80&w=1080',
   image10Alt: 'Embed AI',
   image4Alt: 'Embed AI',
   heading1: 'Revolutionize Your Customer Service with AI Chatbots',
   content1:
     'Elevate your customer service experience with our cutting-edge chatbot solutions. Simplify interactions, deliver immediate responses, and boost customer satisfaction effortlessly.',
 
-  image10Src:
-    'https://images.unsplash.com/photo-1424298397478-4bd87a6a0f0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxOXw&ixlib=rb-4.0.3&q=80&w=1080',
   image9Alt: 'Embed AI',
-  image1Src:
-    'https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxOXw&ixlib=rb-4.0.3&q=80&w=1080',
 }
 
 Hero.propTypes = {

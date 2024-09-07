@@ -39,7 +39,7 @@ export async function POST(req) {
                 expires: new Date(0) // Set expiration date to the past
             });
 
-            const response = NextResponse.json({ response: "Logged Out", success: true });
+            const response = NextResponse.json({ response: "Logged Out", success: true }, { status: 200 });
             response.headers.set('Set-Cookie', cookieOpt);
             return response;
         }

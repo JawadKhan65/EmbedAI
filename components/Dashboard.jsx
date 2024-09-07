@@ -19,8 +19,19 @@ import useUserAndSubscription from './UserDetailsSubscription';
 
 
 const RenderDashboard = ({ children }) => {
-    const [token, userDetails, email, first_name, last_name, id, img_link,
-        chats, length_chats, subscription, chatbots] = useUserAndSubscription()
+    const {
+        token,
+        userDetails,
+        email,
+        first_name,
+        last_name,
+        id,
+        img_link,
+        chats,
+        length_chats,
+        subscription,
+        chatbots
+    } = useUserAndSubscription();
 
     const data = {
         token: token,
@@ -49,4 +60,4 @@ const RenderDashboard = ({ children }) => {
     );
 };
 
-export default RenderDashboard;
+export default React.memo(RenderDashboard);

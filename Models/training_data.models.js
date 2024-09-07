@@ -17,6 +17,11 @@ const trainingSourceSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    file_size: {
+        type: String,
+        required: true
+    },
+
     isTrained: {
         type: Boolean,
         required: true
