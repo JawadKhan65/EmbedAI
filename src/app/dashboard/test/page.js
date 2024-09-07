@@ -68,10 +68,9 @@ const Page = () => {
         chats,
         length_chats,
         subscription,
-        /* eslint-enable react-hooks/rules-of-hooks */
 
         chatbots
-    } = useUserAndSubscription();
+    } = useUserAndSubscription() || {};
 
     const data = {
         token: token,
