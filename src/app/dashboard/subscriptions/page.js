@@ -56,7 +56,8 @@ const Page = () => {
 
 
 
-
+    const { token, userDetails, ... } = useUserAndSubscription();
+    /* eslint-enable react-hooks/rules-of-hooks */
     const {
         token,
         userDetails,
@@ -70,7 +71,8 @@ const Page = () => {
         subscription,
         chatbots
     } = useUserAndSubscription();
-
+    const { token, userDetails, ... } = useUserAndSubscription();
+    /* eslint-enable react-hooks/rules-of-hooks */
     const data = {
         token: token,
         userDetails: userDetails,
