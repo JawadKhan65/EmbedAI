@@ -1,13 +1,9 @@
-'use client'
-import React from 'react';
-
+'use client';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import RenderDashboard from '../../../../components/Dashboard';
 import Loading from '@/app/loading';
-import DashboardContent from '../../../../components/DashboardContent';
 import useUserAndSubscription from '../../../../components/UserDetailsSubscription';
-import FileUpload from '../../../../components/FileUpload';
 import Pricing from '../../../../components/pricing';
 
 const Page = () => {
@@ -15,6 +11,7 @@ const Page = () => {
     const [authToken, setAuthToken] = useState(null); // Use null to represent no token initially
     const [success, setSuccess] = useState(null); // Use null to represent no success status initially
     const [error, setError] = useState('');
+
     const fetchAuthToken = async () => {
         try {
             const response = await fetch('/api/validate');
@@ -50,18 +47,11 @@ const Page = () => {
         }
     }, [success, router]);
 
-    if (authToken === null) {
-        return <Loading />; // Show a loading state while fetching the token
-    }
-
-
-
-
+    // Call the hook unconditionally
     const {
         token,
         userDetails,
         email,
-
         first_name,
         last_name,
         id,
@@ -72,31 +62,37 @@ const Page = () => {
         chatbots
     } = useUserAndSubscription() || {};
 
-    const data = {
-        token: token,
-        userDetails: userDetails,
-        email: email,
-        first_name: first_name,
-        last_name: last_name,
-        id: id,
-        img_link: img_link,
-        chats: chats,
-        length_chats: length_chats,
-        subscription: subscription,
-        chatbots: chatbots
-
+    // Show a loading state while fetching the token
+    if (authToken === null) {
+        return <Loading />;
     }
 
+    // Show an error message if there was an error
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
+    const data = {
+        token,
+        userDetails,
+        email,
+        first_name,
+        last_name,
+        id,
+        img_link,
+        chats,
+        length_chats,
+        subscription,
+        chatbots
+    };
 
     return (
         <div>
-            <RenderDashboard >
+            <RenderDashboard>
                 <Pricing />
-
             </RenderDashboard>
-
         </div>
     );
 }
 
-export default React.memo(Page)
+export default React.memo(Page);
