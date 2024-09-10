@@ -1294,6 +1294,7 @@
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
+  margin: -10px;
 }
 
 .steps-container5 {
@@ -1315,6 +1316,7 @@
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
+  margin: -10px;
 }
 
 .steps-container6 {
@@ -1336,6 +1338,7 @@
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
+  margin: -15px;
 }
 
 .steps-container7 {
@@ -1356,6 +1359,7 @@
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
+  margin: -10px;
 }
 
 @media (max-width: 991px) {
