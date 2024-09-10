@@ -447,7 +447,7 @@
   min-width: 100%;
   align-items: center;
   flex-shrink: 0;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .thq-animated-group-container-vertical {
