@@ -3133,12 +3133,19 @@ hero-placeholder-image10,
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
-  width: 40vw;
+  width: 40rem;
   height: 65vh;
   background: linear-gradient(30deg, #80e8ce, #80cae8);
 
   text-align: center;
 }
+
+@media (max-width: 767px) {
+  .pricing-card {
+    width: 20rem;
+  }
+}
+
 
 .pricing-price {
   margin-bottom: 16px;
