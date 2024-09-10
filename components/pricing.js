@@ -46,7 +46,7 @@ const Pricing = (props) => {
           <div className={`pricing-container1 ${isMonthly ? "pricing-container1" : "pricing-container2"} `}>
             {plans.map((plan, index) => (
               <div key={index} className={`pricing-card `}>
-                <div className={`pricing-price${0 + 10}`}>
+                <div className={`pricing-price${10} `}>
                   <p className="pricing-text17 thq-body-">{plan.name}</p>
                   <h3 className="pricing-text18 thq-heading-3">{plan.price}</h3>
                   <p className="thq-body-large">{plan.yearlyPrice}</p>

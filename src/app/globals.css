@@ -3133,11 +3133,10 @@ hero-placeholder-image10,
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
-  width: 100%;
+  width: 40vw;
   height: 65vh;
   background: linear-gradient(30deg, #80e8ce, #80cae8);
-  max-width: 300px;
-  /* Adjust as needed */
+
   text-align: center;
 }
 
