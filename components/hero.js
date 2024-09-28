@@ -11,7 +11,7 @@ import banner8 from "../public/banners/banner8.png"
 import banner9 from "../public/banners/banner9.png"
 import banner10 from "../public/banners/banner10.png"
 import banner11 from "../public/banners/banner11.png"
-
+import ImageGrid from './Carousel'
 import Image from 'next/image'
 import PropTypes from 'prop-types'
 
@@ -40,176 +40,14 @@ const Hero = (props) => {
             </button>
           </div>
         </div>
-
-        <div className="hero-content1">
-          <div className="hero-row-container1 thq-animated-group-container-vertical thq-mask-image-horizontal">
-            <div className="thq-animated-group-horizontal">
-              <Image
-
-                alt={props.image1Alt}
-                src={props.image1Src}
-                className="hero-placeholder-image10 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-                alt={props.image2Alt}
-                src={props.image2Src}
-                className="hero-placeholder-image11 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-                alt={props.image3Alt}
-                src={props.image3Src}
-                className="hero-placeholder-image12 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-                alt={props.image4Alt}
-                src={props.image4Src}
-                className="hero-placeholder-image13 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-                alt={props.image5Alt}
-                src={props.image5Src}
-                className="hero-placeholder-image14 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-                alt={props.image6Alt}
-                src={props.image6Src}
-                className="hero-placeholder-image15 thq-Image-scale thq-Image-ratio-1-1"
-              />
-
-              <Image
-
-                alt={props.image1Alt}
-                src={props.image1Src}
-                className="hero-placeholder-image16 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-                alt={props.image2Alt}
-                src={props.image2Src}
-                className="hero-placeholder-image17 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-                alt={props.image3Alt}
-                src={props.image3Src}
-                className="hero-placeholder-image18 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-                alt={props.image4Alt}
-                src={props.image4Src}
-                className="hero-placeholder-image19 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image7Alt}
-                src={props.image7Src}
-                className="hero-placeholder-image19 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image5Alt}
-                src={props.image5Src}
-                className="hero-placeholder-image20 thq-Image-scale thq-Image-ratio-1-1"
-              />
-
-            </div>
-          </div>
-
-          <div className="hero-row-container2 thq-animated-group-container-vertical thq-mask-image-horizontal">
-            <div className="thq-animated-group-horizontal-reverse">
-
-              <Image
-
-
-                alt={props.image8Alt}
-                src={props.image8Src}
-                className="hero-placeholder-image23 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image9Alt}
-                src={props.image9Src}
-                className="hero-placeholder-image24 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image10Alt}
-                src={props.image10Src}
-                className="hero-placeholder-image25 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image11Alt}
-                src={props.image11Src}
-                className="hero-placeholder-image26 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image6Alt}
-                src={props.image6Src}
-                className="hero-placeholder-image27 thq-Image-scale thq-Image-ratio-1-1"
-              />
-
-              <Image
-
-
-                alt={props.image7Alt}
-                src={props.image7Src}
-                className="hero-placeholder-image28 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image8Alt}
-                src={props.image8Src}
-                className="hero-placeholder-image29 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image9Alt}
-                src={props.image9Src}
-                className="hero-placeholder-image30 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image10Alt}
-                src={props.image10Src}
-                className="hero-placeholder-image31 thq-Image-scale thq-Image-ratio-1-1"
-              />
-              <Image
-
-
-                alt={props.image11Alt}
-                src={props.image11Src}
-                className="hero-placeholder-image32 thq-Image-scale thq-Image-ratio-1-1"
-              />
-
-            </div>
-          </div>
-        </div>
+        <ImageGrid />
 
       </div>
-
     </>
   )
 }
 
 Hero.defaultProps = {
-
   image1Src: banner1,
   image2Src: banner2,
   image3Src: banner3,
@@ -221,8 +59,6 @@ Hero.defaultProps = {
   image9Src: banner9,
   image10Src: banner10,
   image11Src: banner11,
-
-
   image8Alt: 'Embed AI',
   image6Alt: 'Embed AI',
   image5Alt: 'Embed AI',
@@ -238,7 +74,6 @@ Hero.defaultProps = {
   heading1: 'Revolutionize Your Customer Service with AI Chatbots',
   content1:
     'Elevate your customer service experience with our cutting-edge chatbot solutions. Simplify interactions, deliver immediate responses, and boost customer satisfaction effortlessly.',
-
   image9Alt: 'Embed AI',
 }
 

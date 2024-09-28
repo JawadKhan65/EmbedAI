@@ -37,7 +37,6 @@ const Home = (props) => {
         <Hero />
         <Features1 />
         <CTA />
-        <Features2 />
         <Pricing />
         <Steps />
         <Testimonial />
