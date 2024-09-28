@@ -15,12 +15,8 @@ const Chatbox = ({ context }) => {
     const handleSend = async () => {
         if (input.trim()) {
             setMessages(prevMessages => [...prevMessages, { type: 'user', text: input }]);
-
             setInput('');
-
             await run(); // Ensure that run() is awaited before proceeding
-
-
         }
     };
 
@@ -46,7 +42,6 @@ const Chatbox = ({ context }) => {
     };
 
     const run = async () => {
-
         const chatSession = model.startChat({
             generationConfig,
             history: [
@@ -82,15 +77,16 @@ const Chatbox = ({ context }) => {
             bg={'gray.50'}
             spacing={4}
             align="stretch"
-            w={'41vw'}
+            w={{ base: '90vw', md: '41vw' }} // Responsive width
             borderRadius={'xl'}
             mx="auto"
             my={4}
-            h="600px"
+            h={{ base: '80vh', md: '600px' }} // Responsive height
+            maxH="80vh" // Maximum height for larger screens
         >
             <Box m={2} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
                 <Box onClick={() => window.open(process.env.BASE_URL, '_blank')} cursor={'pointer'} display={'flex'}>
-                    <Text textAlign={'unset'} mt={3} mr={2} fontSize={'sm'} fontWeight={800}>Powered By</Text>
+                    <Text textAlign={'unset'} mt={3} mr={2} fontSize={{ base: 'md', md: 'sm' }} fontWeight={800}>Powered By</Text>
                     <Image height={30} alt='EmbedAI' src={logo} />
                 </Box>
                 <Text m={1} fontSize="sm" color={'gray'}>Democratizing Human-Machine Interaction</Text>
@@ -101,10 +97,10 @@ const Chatbox = ({ context }) => {
                 p={4}
                 flex={1}
                 overflowY="auto"
-                width={'39vw'}
+                width={'full'} // Full width for responsiveness
             >
                 {messages.length === 0 ? (
-                    <Box height={'30vh'} width={'35vw'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
+                    <Box height={'30vh'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
                         <VStack>
                             <Text m={4} padding={8} textAlign={'center'}>
                                 Chat with our AI-based Support Here
@@ -129,7 +125,7 @@ const Chatbox = ({ context }) => {
                 ))}
                 <div ref={chatEndRef} />
             </Box>
-            <Flex height={'10vh'} as="form" onKeyDown={handleKeyDown} onSubmit={(e) => { e.preventDefault(); handleSend(); }} align="center" p={2}>
+            <Flex height={{ base: '12vh', md: '10vh' }} as="form" onKeyDown={handleKeyDown} onSubmit={(e) => { e.preventDefault(); handleSend(); }} align="center" p={2}>
                 <Textarea
                     placeholder="Type your message..."
                     value={input}
