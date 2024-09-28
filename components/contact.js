@@ -23,9 +23,7 @@ const Contact = (props) => {
               <div className="contact-contact-info1">
                 <div className="contact-content3">
                   <h3 className="contact-text4 thq-heading-3">Email</h3>
-                  <p className="contact-text5 thq-body-large">
-                    {props.content3}
-                  </p>
+
                 </div>
                 <span className="contact-email thq-body-small">
                   {props.email1}
@@ -39,9 +37,7 @@ const Contact = (props) => {
               <div className="contact-contact-info2">
                 <div className="contact-content5">
                   <h3 className="contact-text6 thq-heading-3">Phone</h3>
-                  <p className="contact-text7 thq-body-large">
-                    {props.content4}
-                  </p>
+
                 </div>
                 <span className="contact-phone thq-body-small">
                   {props.phone1}
@@ -78,7 +74,7 @@ Contact.defaultProps = {
   content2: 'Our expert support team is available 24/7 to assist you with any inquiries.',
   email1: 'support@chatbotprovider.com',
   phone1: '+1-800-123-4567',
-  address1: '123 Main Street, City, Country',
+  address1: 'Lahore, Pakistan',
   content3: 'For general inquiries or specific support needs, feel free to email or call us anytime.',
   content4: 'Visit our office during business hours for in-person assistance with our products and services.',
   content5: 'Follow us on social media for the latest updates, tips, and best practices for using our chatbots.',

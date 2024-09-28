@@ -14,6 +14,7 @@ import Footer from '../../components/footer';
 import RenderDashboard from '../../components/Dashboard';
 import Chatbox from '../../components/ChatBox';
 import { Box, Button } from '@chakra-ui/react';
+import { ChatIcon } from '@chakra-ui/icons';
 
 const Home = (props) => {
   const [isChatboxVisible, setChatboxVisible] = useState(true); // State for visibility
@@ -45,7 +46,7 @@ const Home = (props) => {
         {/* Toggle button for Chatbox at the end of the page */}
         <Box position="fixed" bottom={4} right={4} zIndex={10}>
           <Button color={"white"} colorScheme={"cyan"} onClick={toggleChatbox} >
-            {isChatboxVisible ? 'Close' : 'Chat with Us'}
+            {isChatboxVisible ? 'Close' : <><ChatIcon /> <p className='ml-2'>Chat with Us</p></>}
           </Button>
           {isChatboxVisible && <Chatbox context={context} />} {/* Show or hide the Chatbox */}
         </Box>
