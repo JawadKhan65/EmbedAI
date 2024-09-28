@@ -25,7 +25,7 @@ const Sidebar = ({ props }) => {
     };
 
     useEffect(() => {
-        if (props.chatbots.length > 0) {
+        if (props.chatbots?.length > 0) {
             handleMenuItemClick(props.chatbots[0]._id);
         }
     }, [props.chatbots]);

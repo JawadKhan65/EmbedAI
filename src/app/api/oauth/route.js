@@ -2,6 +2,9 @@ import { OAuth2Client } from "google-auth-library";
 import { NextResponse } from "next/server";
 import authServices from "./services";
 import cookie from 'cookie';
+import DashboardDao from "../dashboard/dao";
+import DashboardService from "../dashboard/services";
+
 
 // Function to get user data from Google
 const getUserData = async (token) => {
@@ -19,20 +22,28 @@ export async function GET(req) {
         const oAuth2Client = new OAuth2Client(
             process.env.GOOGLE_ID,
             process.env.GOOGLE_SECRET,
-            `${process.env.BASE_URL}/api/oauth/`
+            `${process.env.BASE_URL}/api/oauth`
         );
 
 
         const { tokens } = await oAuth2Client.getToken(code);
         oAuth2Client.setCredentials(tokens);
-
+        console.log(tokens)
         const data = await getUserData(tokens.access_token);
 
 
         let user = await authServices.loginUser(data?.email, null, 'google', data?.sub);
-
         if (!user.success) {
+            const botservice = new DashboardService();
             user = await authServices.registerUser(data?.given_name, data?.family_name, data?.picture, data?.email, null, 'google', data?.sub);
+            const chatbot = {
+                userid: user.response._id,
+                type: 'free',
+                chatbot_name: 'Default Chatbot'
+            }
+            const chatbot_response = await botservice.CreateUserChatBot(chatbot);
+
+            console.log('Chatbot created successfully');
 
         }
 
@@ -63,7 +74,7 @@ export async function POST() {
         const oAuth2Client = new OAuth2Client(
             process.env.GOOGLE_ID,
             process.env.GOOGLE_SECRET,
-            `${process.env.BASE_URL}/api/oauth/`
+            `${process.env.BASE_URL}/api/oauth`
         );
 
         // Generate the OAuth authorization URL

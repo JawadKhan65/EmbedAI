@@ -6,7 +6,19 @@ import Loading from '@/app/loading';
 import useUserAndSubscription from '../../../../components/UserDetailsSubscription';
 import Chatbox from '../../../../components/ChatBox';
 
+
+
+import {
+    GoogleGenerativeAI,
+    HarmCategory
+} from "@google/generative-ai";
+
+
 const Page = () => {
+
+
+
+
     const router = useRouter();
     const [authToken, setAuthToken] = useState(null); // Use null to represent no token initially
     const [success, setSuccess] = useState(null); // Use null to represent no success status initially

@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import Navbar from '../../components/navbar';
 import Hero from '../../components/hero';
@@ -12,8 +12,20 @@ import Testimonial from '../../components/testimonial';
 import Contact from '../../components/contact';
 import Footer from '../../components/footer';
 import RenderDashboard from '../../components/Dashboard';
+import Chatbox from '../../components/ChatBox';
+import { Box, Button } from '@chakra-ui/react';
 
 const Home = (props) => {
+  const [isChatboxVisible, setChatboxVisible] = useState(true); // State for visibility
+  const context = `
+            Note: You are a support agent for EmbedAI.Provide Clear Cut Answer to the User, No Useless Information.
+            About EmbedAI:
+            "At EmbedAI, we provide comprehensive AI solutions tailored to meet the diverse needs of any industry. Our expertise spans across various domains, offering cutting-edge technologies for customer support, industrial automation, and more. Whether you're looking to enhance customer engagement, streamline operations, or innovate within your sector, EmbedAI has the right tools and solutions to help you succeed. From predictive analytics to natural language processing, we empower businesses to leverage AI for transformative results, ensuring every client finds the perfect solution for their unique challenges."
+        `;
+
+  const toggleChatbox = () => {
+    setChatboxVisible((prev) => !prev);
+  };
   return (
     <>
       <Head>
@@ -30,7 +42,13 @@ const Home = (props) => {
         <Testimonial />
         <Contact />
         <Footer />
-        {/* <RenderDashboard /> */}
+        {/* Toggle button for Chatbox at the end of the page */}
+        <Box position="fixed" bottom={4} right={4} zIndex={10}>
+          <Button color={"white"} colorScheme={"cyan"} onClick={toggleChatbox} >
+            {isChatboxVisible ? 'Close' : 'Chat with Us'}
+          </Button>
+          {isChatboxVisible && <Chatbox context={context} />} {/* Show or hide the Chatbox */}
+        </Box>
       </div>
       <style jsx>
         {`

@@ -32,7 +32,12 @@ const ChatBots = new mongoose.Schema({
         type: String,
         required: true
     },
-
+    type: {
+        type: String,
+        required: true,
+        default: 'free'
+    }
+    ,
     chatbot_name: {
         type: String,
         required: true

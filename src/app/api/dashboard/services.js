@@ -36,7 +36,7 @@ class DashboardService {
             if (total_chatbots.success) {
                 const chatbotsCount = total_chatbots.response.length;
 
-                if ((chatbot?.type === 'free' && chatbot?.type === subscription.type) && chatbotsCount >= free_limit) {
+                if ((chatbot?.type === 'free' && chatbot?.type === subscription?.type) && chatbotsCount >= free_limit) {
                     return { success: false, response: 'Free plan limit exceeded' };
                 }
                 if (chatbot?.type === 'basic' && chatbotsCount >= basic_limit) {
