@@ -51,9 +51,7 @@ const Contact = (props) => {
               <div className="contact-contact-info3">
                 <div className="contact-content7">
                   <h3 className="contact-text8 thq-heading-3">Office</h3>
-                  <p className="contact-text9 thq-body-large">
-                    {props.content5}
-                  </p>
+
                 </div>
                 <span className="contact-address thq-body-small">
                   {props.address1}
