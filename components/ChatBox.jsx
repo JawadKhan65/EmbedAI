@@ -48,7 +48,7 @@ const Chatbox = ({ context }) => {
                 {
                     role: 'user',
                     parts: [
-                        { text: context },
+                        { text: context !== undefined ? context : 'You are a chat support agent.No Data Have Been Provided.Instruct User to add Data.' },
                     ],
                 },
             ],

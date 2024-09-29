@@ -16,8 +16,10 @@ import Chatbox from '../../components/ChatBox';
 import { Box, Button } from '@chakra-ui/react';
 import { ChatIcon } from '@chakra-ui/icons';
 import ImageGrid from '../../components/Carousel';
+import embedai from '../../public/embed-ai.png';
+import Image from 'next/image';
 const Home = (props) => {
-  const [isChatboxVisible, setChatboxVisible] = useState(true); // State for visibility
+  const [isChatboxVisible, setChatboxVisible] = useState(false); // State for visibility
   const context = `
   "You are the support chatbot for EmbedAI, an AI services company. Your role is to assist users with information about EmbedAI's services and guide them to relevant solutions. You must answer queries related to our offerings in AI, automation, machine learning, and other advanced AI solutions in a professional and helpful manner.
 
@@ -42,7 +44,10 @@ Business process automation
 Custom AI models
 AI as a Service (AIaaS)
 Answer each query based on these services and offer additional details as needed. Ensure users have an excellent experience by providing accurate, easy-to-understand responses."
-             `;
+Our Contacts:
+Email: embedai.io@gmail.com
+Phone: +92-329-7833100   
+`;
 
   const toggleChatbox = () => {
     setChatboxVisible((prev) => !prev);
@@ -67,7 +72,17 @@ Answer each query based on these services and offer additional details as needed
         {/* Toggle button for Chatbox at the end of the page */}
         <Box position="fixed" bottom={4} right={4} zIndex={10}>
           <Button color={"white"} colorScheme={"cyan"} onClick={toggleChatbox} >
-            {isChatboxVisible ? 'Close' : <><ChatIcon /> <p className='ml-2'>Chat with Us</p></>}
+            {isChatboxVisible ? 'Close' : <>
+              <ChatIcon />
+
+
+              <p className='ml-2'>
+                Chat with </p>
+              <div className=' ml-2 bg-white rounded-full h-6 w-6 mr-2 flex items-center justify-center'>
+                <Image src={embedai} alt="Embed AI Logo" width={24} height={24} />
+              </div>
+            </>
+            }
           </Button>
           {isChatboxVisible && <Chatbox context={context} />} {/* Show or hide the Chatbox */}
         </Box>
