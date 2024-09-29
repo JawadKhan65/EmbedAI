@@ -33,7 +33,8 @@ const ImageCarousel = () => {
     ];
 
     return (
-        <Box p={4} bg={"teal.800"} width={"100vw"}>
+        <Box p={4}
+            bg={'linear-gradient(200deg, #7a34eb 5%, #3734eb,#090a0f 80%,#34ebeb);'} width={"100vw"}>
             <Text textAlign={"center"} fontSize="xl" color={"white"} mb={4}>
                 Our Services
             </Text>

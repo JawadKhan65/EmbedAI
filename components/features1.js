@@ -9,17 +9,7 @@ const Features1 = (props) => {
     <>
       <div className="thq-section-padding about">
         <div className="features1-container2 thq-section-max-width">
-          <div className="features1-image-container">
 
-            <Image
-
-
-              alt={props.feature1ImgAlt}
-              src={props.feature1ImgSrc}
-              className="features1-image1 "
-            />
-
-          </div>
           <div className="features1-tabs-menu">
             <div
               onClick={() => setActiveTab(0)}

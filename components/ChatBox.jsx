@@ -77,7 +77,7 @@ const Chatbox = ({ context }) => {
             bg={'gray.50'}
             spacing={4}
             align="stretch"
-            w={{ base: '90vw', md: '41vw' }} // Responsive width
+            w={{ base: '90vw', md: '41vw', lg: "21vw" }} // Responsive width
             borderRadius={'xl'}
             mx="auto"
             my={4}

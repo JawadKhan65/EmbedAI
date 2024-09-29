@@ -40,7 +40,6 @@ const Hero = (props) => {
             </button>
           </div>
         </div>
-        <ImageGrid />
 
       </div>
     </>
