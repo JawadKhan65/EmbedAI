@@ -4,6 +4,7 @@ import authServices from "./services";
 import cookie from 'cookie';
 import DashboardDao from "../dashboard/dao";
 import DashboardService from "../dashboard/services";
+import { mongo_connection } from "../../../../lib/db";
 
 
 // Function to get user data from Google
@@ -19,6 +20,7 @@ export async function GET(req) {
     const code = url.searchParams.get('code');
 
     try {
+        mongo_connection()
         const oAuth2Client = new OAuth2Client(
             process.env.GOOGLE_ID,
             process.env.GOOGLE_SECRET,
@@ -71,6 +73,7 @@ export async function GET(req) {
 // POST: Generates the OAuth authorization URL
 export async function POST() {
     try {
+        mongo_connection()
         const oAuth2Client = new OAuth2Client(
             process.env.GOOGLE_ID,
             process.env.GOOGLE_SECRET,

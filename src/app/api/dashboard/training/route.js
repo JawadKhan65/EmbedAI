@@ -1,6 +1,7 @@
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { NextResponse } from 'next/server';
 import mime from 'mime-types';
+import { mongo_connection } from '../../../../../lib/db';
 
 // Initialize S3 client with the correct region
 const s3Client = new S3Client({
@@ -20,6 +21,7 @@ async function parseFormData(req) {
 
 export async function POST(req) {
     try {
+        mongo_connection()
         // Parse the incoming form data
         const { file, filename } = await parseFormData(req);
 

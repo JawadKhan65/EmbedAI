@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
 import DashboardService from "../services";
+import { mongo_connection } from "../../../../../lib/db";
 
 
 export async function POST(req, res) {
     try {
+        mongo_connection()
         const body = await req.json()
 
         const service = new DashboardService();
@@ -24,6 +26,7 @@ export async function POST(req, res) {
 }
 
 export async function PUT(req, res) {
+    mongo_connection()
     const { userid, subscription } = await req.json();
     try {
         const service = new DashboardService();

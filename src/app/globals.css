@@ -217,10 +217,14 @@
 }
 
 .thq-body-small {
+  cursor: pointer;
+
   font-size: 16px;
   font-family: Noto Sans;
   line-height: 1.5;
 }
+
+
 
 .thq-team-image-round {
   width: 80px;

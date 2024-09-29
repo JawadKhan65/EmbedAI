@@ -1,9 +1,11 @@
+import { mongo_connection } from "../../../../../lib/db";
 import DashboardService from "../services";
 import { NextResponse } from "next/server";
 
 
 export async function GET(req, res) {
     try {
+        mongo_connection()
         const services = new DashboardService();
         const { searchParams } = new URL(req.url);
         const userid = searchParams.get('userid');

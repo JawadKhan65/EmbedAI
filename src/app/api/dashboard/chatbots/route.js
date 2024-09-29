@@ -1,8 +1,10 @@
+import { mongo_connection } from "../../../../../lib/db";
 import DashboardService from "../services";
 import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
     try {
+        mongo_connection()
         const service = new DashboardService();
         const { searchParams } = new URL(req.url);
         const userid = searchParams.get('userid');
@@ -25,6 +27,7 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
     try {
+        mongo_connection()
         const service = new DashboardService();
         const body = await req.json();
         const response = await service.CreateUserChatBot(body);

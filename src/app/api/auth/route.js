@@ -1,11 +1,13 @@
 import { NextResponse, NextRequest } from "next/server";
 import cookie from 'cookie';
 import authServices from "../oauth/services";
+import { mongo_connection } from "../../../../lib/db";
 
 export async function POST(req) {
     try {
         console.log("on start of login");
 
+        mongo_connection()
 
         const data = await req.json();
 

@@ -1,3 +1,4 @@
+import { mongo_connection } from "../../../../../lib/db";
 import DashboardService from "../services";
 
 import { NextResponse } from "next/server";
@@ -5,6 +6,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
     try {
+        mongo_connection
         const body = await req.json()
         // console.log(body)
         const service = new DashboardService()
@@ -22,6 +24,7 @@ export async function POST(req) {
 
 export async function GET(req) {
     try {
+        mongo_connection()
         let searchParams = new URL(req.url).searchParams;
         let userid = searchParams.get('userid');
         let chatbot_id = searchParams.get('chatbot_id');

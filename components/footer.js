@@ -62,8 +62,9 @@ const Footer = (props) => {
                 </strong>
                 <div className="footer-footer-links1">
                   <a
+
                     onClick={handleScrollPricing}
-                    className="thq-body-small"
+                    className="thq-body-small "
                   >
                     {props.link1}
                   </a>

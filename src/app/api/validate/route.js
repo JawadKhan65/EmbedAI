@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
 import { verifyToken } from "../../../../lib/utils";
 import cookie from 'cookie';
+import { mongo_connection } from "../../../../lib/db";
 
 export async function GET(req) {
     try {
+        mongo_connection()
 
         const cookies = cookie.parse(req.headers.get('cookie') || '');
         const authToken = cookies.authToken;
@@ -25,6 +27,7 @@ export async function GET(req) {
 
 export async function POST(req) {
     try {
+        mongo_connection()
         const cookies = cookie.parse(req.headers.get('cookie') || '');
         const authToken = cookies.authToken;
 
