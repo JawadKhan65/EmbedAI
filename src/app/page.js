@@ -71,7 +71,9 @@ Phone: +92-329-7833100
         <Footer />
         {/* Toggle button for Chatbox at the end of the page */}
         <Box position="fixed" bottom={4} right={4} zIndex={10}>
-          <Button color={"white"} colorScheme={"cyan"} onClick={toggleChatbox} >
+          <Button color={"white"} colorScheme={"cyan"} _hover={{
+            bg: "#6690d8",
+          }} onClick={toggleChatbox} >
             {isChatboxVisible ? 'Close' : <>
               <ChatIcon />
 

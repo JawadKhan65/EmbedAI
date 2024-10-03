@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import automation from "../public/Content/Automation.png"
 import PropTypes from 'prop-types'
 import Image from "next/image"
+
 const Features1 = (props) => {
   const [activeTab, setActiveTab] = useState(0)
   return (
@@ -60,9 +61,23 @@ const Features1 = (props) => {
               </div>
             </div>
           </div>
+
+          {/* Summary of services offered by EmbedAI */}
+          <div className="services-summary">
+            <h2 className="thq-heading-2">Our AI-Powered Solutions</h2>
+            <p className="thq-body-large">
+              At EmbedAI, we provide advanced AI-driven solutions tailored to elevate your business processes:
+            </p>
+            <ul className="thq-body-medium">
+              <li><strong>AI-Enhanced Chatbots</strong>: Automate customer support with intelligent, real-time responses.</li>
+              <li><strong>24/7 Customer Assistance</strong>: Ensure your clients receive uninterrupted service anytime.</li>
+              <li><strong>Seamless Integration</strong>: Easily incorporate AI into your current systems for enhanced performance.</li>
+              <li><strong>Data-Driven Insights</strong>: Leverage AI to gain actionable insights from customer interactions.</li>
+              <li><strong>Cost-Effective Automation</strong>: Reduce operational costs through AI-powered automation solutions.</li>
+            </ul>
+          </div>
         </div>
       </div>
-
     </>
   )
 }
@@ -83,7 +98,6 @@ Features1.defaultProps = {
   feature3ImgSrc: 'https://images.unsplash.com/photo-1490730141103-6cac27aaab94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxNXw&ixlib=rb-4.0.3&q=80&w=1080',
   feature3ImgAlt: 'Integration with Existing Support Systems',
 }
-
 
 Features1.propTypes = {
   feature1ImgAlt: PropTypes.string,
