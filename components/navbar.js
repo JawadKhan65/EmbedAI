@@ -123,8 +123,7 @@ const Navbar = (props) => {
                 <span onClick={handleScrollAbout} className="thq-link thq-body-small">{props.link2}</span>
                 <span onClick={handleScrollServices} className="thq-link thq-body-small">{props.link3}</span>
                 <span onClick={handleScrollContact} className="thq-link thq-body-small">{props.link4}</span>
-                <span className="thq-link thq-body-small">{props.link5}</span>
-                <span onClick={handleScrollPricing} className="thq-link thq-body-small">{props.link6}</span>
+                <span onClick={handleScrollPricing} className="thq-link thq-body-small">{props.link5}</span>
                 {isLogged && <span onClick={() => router.push('/dashboard')} className="thq-link thq-body-small">Dashboard</span>}
               </nav>
               <div className="navbar-buttons1">
