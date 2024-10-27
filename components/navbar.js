@@ -37,7 +37,7 @@ const Navbar = (props) => {
           translation_btn.value = locale
           translation_btn.dispatchEvent(new Event('change'))
         }
-      }, 5000)
+      }, 3000)
 
       const script = document.createElement('script');
       script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
