@@ -56,21 +56,30 @@ Phone: +92-329-7833100
 
   //google translate
   useEffect(() => {
-    window.googleTranslateElementInit = () => {
-      new window.google.translate.TranslateElement({
-        pageLanguage: 'en',
-        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false,
-      }, 'google_translate_element');
+    const googleTranslateElementId = 'google_translate_element';
+    const WindowGoogleTranslateElementInit = () => {
+      if (document.getElementById(googleTranslateElementId) && window.google && window.google.translate) {
+        return;
+      }
+      window.googleTranslateElementInit = () => {
 
+        new window.google.translate.TranslateElement({
+          pageLanguage: 'en',
+          // includedLanguages: 'en,es,fr,de,it,ja,ko,pt,ru,zh-CN',
+          layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
+          autoDisplay: false,
+        }, 'google_translate_element');
+
+      }
+      const script = document.createElement('script');
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      document.body.appendChild(script);
+      return () => {
+        document.body.removeChild(script);
+      }
     }
-    const script = document.createElement('script');
-    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    }
+    WindowGoogleTranslateElementInit();
   })
   return (
     <>
@@ -84,7 +93,7 @@ Phone: +92-329-7833100
         <CTA />
         <ImageGrid />
 
-        <Pricing />
+        {/* <Pricing /> */}
         <Steps />
         <Testimonial />
         <Contact />

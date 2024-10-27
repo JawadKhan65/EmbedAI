@@ -36,7 +36,7 @@ const Navbar = (props) => {
   };
 
   const handleScrollServices = () => {
-    const services = document.getElementsByClassName('steps-container1')[0];
+    const services = document.getElementsByClassName('carousel-container')[0];
     if (services) {
       services.scrollIntoView({ behavior: 'smooth' });
     }

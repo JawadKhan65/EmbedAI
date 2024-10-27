@@ -34,6 +34,7 @@ const ImageCarousel = () => {
 
     return (
         <Box p={4}
+            className='carousel-container'
             bg={'linear-gradient(200deg,#090a0f 50% , #3734eb ,#34ebeb);'} width={"100vw"}>
             <Text textAlign={"center"} fontSize="xl" color={"white"} mb={4}>
                 Our Services
