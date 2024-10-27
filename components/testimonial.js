@@ -133,8 +133,8 @@ const Testimonial = (props) => {
 }
 
 Testimonial.defaultProps = {
-  author2Position: 'COO, Company XYZ',
-  author1Position: 'CEO, Company ABC',
+  author2Position: 'COO, Company  Anonymous',
+  author1Position: 'CEO, Company  Anonymous',
   author3Alt: 'Image of David Johnson',
   author1Name: 'John Doe',
   author1Src:
@@ -143,7 +143,7 @@ Testimonial.defaultProps = {
   review2:
     'We implemented the chatbot solution from Customer Support Services and saw a noticeable decrease in support tickets and an increase in customer engagement.',
   author2Name: 'Jane Smith',
-  author4Position: 'CMO, Company ABCD',
+  author4Position: 'CMO, Company Anonymous',
   author4Name: 'Sarah Lee',
   author4Src:
     'https://images.unsplash.com/photo-1496813146940-1601b02f81a4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTMyMXwwfDF8cmFuZG9tfHx8fHx8fHx8MTcyMzU2MDYxNXw&ixlib=rb-4.0.3&q=80&w=1080',
@@ -156,7 +156,7 @@ Testimonial.defaultProps = {
   author4Alt: 'Image of Sarah Lee',
   content1:
     'See what our customers have to say about our customer support services chatbot.',
-  author3Position: 'CTO, Company 123',
+  author3Position: 'CTO, Company  Anonymous',
   review1:
     'The chatbot provided by Customer Support Services has significantly improved our customer response time and satisfaction. Highly recommended!',
   heading1: 'Testimonials',

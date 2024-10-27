@@ -123,10 +123,13 @@ const Navbar = (props) => {
                 <span onClick={handleScrollAbout} className="thq-link thq-body-small">{props.link2}</span>
                 <span onClick={handleScrollServices} className="thq-link thq-body-small">{props.link3}</span>
                 <span onClick={handleScrollContact} className="thq-link thq-body-small">{props.link4}</span>
-                <span onClick={handleScrollPricing} className="thq-link thq-body-small">{props.link5}</span>
+                {/* <span onClick={handleScrollPricing} className="thq-link thq-body-small">{props.link5}</span> */}
                 {isLogged && <span onClick={() => router.push('/dashboard')} className="thq-link thq-body-small">Dashboard</span>}
               </nav>
               <div className="navbar-buttons1">
+                <div id="google_translate_element"></div>
+              </div>
+              {/* <div className="navbar-buttons1">
                 {isLogged ? (
                   <button onClick={handleLogout} className="navbar-action21 thq-button-outline thq-button-animated">
                     <span className="thq-body-small">Logout</span>
@@ -141,7 +144,7 @@ const Navbar = (props) => {
                     </button>
                   </>
                 )}
-              </div>
+              </div> */}
             </div>
             <div data-thq="thq-burger-menu" className="navbar-burger-menu" onClick={toggleMenu}>
               <svg viewBox="0 0 1024 1024" className="navbar-icon1">
@@ -171,13 +174,17 @@ const Navbar = (props) => {
                   <span onClick={handleScrollAbout} className="thq-link thq-body-small">{props.link2}</span>
                   <span onClick={handleScrollServices} className="thq-link thq-body-small">{props.link3}</span>
                   <span onClick={handleScrollContact} className="thq-link thq-body-small">{props.link4}</span>
-                  <span onClick={handleScrollPricing} className="thq-link thq-body-small">{props.link5}</span>
+                  {/* <span onClick={handleScrollPricing} className="thq-link thq-body-small">{props.link5}</span> */}
                   {isLogged && (
                     <span onClick={() => router.push('/dashboard')} className="thq-link thq-body-small">Dashboard</span>
                   )}
                 </nav>
               </div>
               <div className="navbar-buttons2">
+                <div id="google_translate_element"></div>
+
+              </div>
+              {/* <div className="navbar-buttons2">
                 {isLogged ? (
                   <button onClick={handleLogout} className="thq-button-filled">Logout</button>
                 ) : (
@@ -186,7 +193,7 @@ const Navbar = (props) => {
                     <button onClick={handleRegister} className="thq-button-outline">{props.action2}</button>
                   </>
                 )}
-              </div>
+              </div> */}
             </div>
           </>
         )}

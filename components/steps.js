@@ -23,11 +23,7 @@ const Steps = (props) => {
               <p className="thq-body-large">
                 Whether you need support for sales, troubleshooting, or general inquiries, our customizable chatbots are here to help.
               </p>
-              <div className="steps-actions">
-                <button className="thq-button-animated thq-button-filled steps-button">
-                  <span className="thq-body-small">Main action</span>
-                </button>
-              </div>
+
             </div>
             <div className="steps-container3">
               <div className="steps-container4 thq-card">

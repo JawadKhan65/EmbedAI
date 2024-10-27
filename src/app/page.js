@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Navbar from '../../components/navbar';
 import Hero from '../../components/hero';
@@ -52,6 +52,26 @@ Phone: +92-329-7833100
   const toggleChatbox = () => {
     setChatboxVisible((prev) => !prev);
   };
+
+
+  //google translate
+  useEffect(() => {
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false,
+      }, 'google_translate_element');
+
+    }
+    const script = document.createElement('script');
+    script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    }
+  })
   return (
     <>
       <Head>

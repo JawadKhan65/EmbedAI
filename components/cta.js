@@ -4,6 +4,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const CTA = (props) => {
+  const handleScrollContact = () => {
+    const contact = document.getElementsByClassName('contact-contact20')[0];
+    if (contact) {
+      contact.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <div className="thq-section-padding">
@@ -17,6 +24,7 @@ const CTA = (props) => {
                 </div>
                 <div className="cta-actions">
                   <button
+                    onClick={handleScrollContact}
                     type="button"
                     className="thq-button-filled cta-button"
                   >
