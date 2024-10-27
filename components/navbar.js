@@ -13,6 +13,61 @@ const Navbar = (props) => {
   const [isLogged, setLogged] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
+
+  //google translate
+  useEffect(() => {
+    const googleTranslateElementId = 'google_translate_element';
+
+    const WindowGoogleTranslateElementInit = () => {
+      if (document.getElementById(googleTranslateElementId) && window.google && window.google.translate) {
+        return;
+      }
+
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement({
+          pageLanguage: 'en',
+          layout: window.google.translate.TranslateElement.InlineLayout.VERTICAL,
+          autoDisplay: false,
+        }, googleTranslateElementId);
+      };
+      let locale = window.navigator.language.split('-')[0] || 'en';
+      setTimeout(() => {
+        const translation_btn = document.querySelector(`select.goog-te-combo`)
+        if (translation_btn) {
+          translation_btn.value = locale
+          translation_btn.dispatchEvent(new Event('change'))
+        }
+      }, 5000)
+
+      const script = document.createElement('script');
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    WindowGoogleTranslateElementInit();
+
+    return () => {
+      const existingScript = document.querySelector(`script[src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"]`);
+
+      // Only try to remove the script if it exists
+      if (existingScript && existingScript.parentNode) {
+        existingScript.parentNode.removeChild(existingScript);
+      }
+
+      // Clean up global variable if it exists
+      if (window.googleTranslateElementInit) {
+        delete window.googleTranslateElementInit;
+        window.location.reload();
+      }
+    };
+  }, []); // Empty dependency array ensures useEffect runs only once
+
+
+
+
+
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
