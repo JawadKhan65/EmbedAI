@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-
 import PropTypes from 'prop-types'
 
 const Steps = (props) => {
@@ -23,7 +22,6 @@ const Steps = (props) => {
               <p className="thq-body-large">
                 Whether you need support for sales, troubleshooting, or general inquiries, our customizable chatbots are here to help.
               </p>
-
             </div>
             <div className="steps-container3">
               <div className="steps-container4 thq-card">
@@ -58,34 +56,33 @@ const Steps = (props) => {
           </div>
         </div>
       </div>
-
     </>
   )
 }
 
 Steps.defaultProps = {
   step1Description:
-    'Create an account with us to get started with our customer support services chatbot.',
-  step3Description:
-    'Easily integrate the chatbot with your website.',
-  step2Title: 'Customize Your Chatbot',
+    'Unlock unprecedented customer engagement by leveraging our intelligent chatbot solutions tailored to your unique business needs. Experience seamless interactions that enhance satisfaction and build loyalty.',
   step2Description:
-    'Tailor the chatbot to suit your brand and customer support needs.',
-  step1Title: 'Sign Up for Our Services',
-  step3Title: 'Integrate with Your Platforms',
+    'Empower your team with actionable insights derived from our advanced analytics. Our AI not only learns but also adapts, ensuring you stay ahead in understanding customer preferences.',
+  step3Description:
+    'Streamline operations and enhance efficiency by integrating our AI solutions into your existing workflows. Our easy-to-use tools ensure a smooth transition that maximizes productivity.',
   step4Description:
-    'Deploy the chatbot to start assisting your customers and track its performance.',
-  step4Title: 'Launch and Monitor Performance',
+    'Witness measurable results with our AI-driven support system. We provide continuous monitoring and optimization to ensure your chatbot delivers the best possible service to your customers.',
+  step1Title: 'Enhance Customer Engagement',
+  step2Title: 'Gain Actionable Insights',
+  step3Title: 'Integrate Seamlessly',
+  step4Title: 'Measure Success',
 }
 
 Steps.propTypes = {
   step1Description: PropTypes.string,
-  step3Description: PropTypes.string,
-  step2Title: PropTypes.string,
   step2Description: PropTypes.string,
-  step1Title: PropTypes.string,
-  step3Title: PropTypes.string,
+  step3Description: PropTypes.string,
   step4Description: PropTypes.string,
+  step1Title: PropTypes.string,
+  step2Title: PropTypes.string,
+  step3Title: PropTypes.string,
   step4Title: PropTypes.string,
 }
 

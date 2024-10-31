@@ -65,9 +65,6 @@ const Navbar = (props) => {
 
 
 
-
-
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
