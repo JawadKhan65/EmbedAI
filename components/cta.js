@@ -40,12 +40,15 @@ const CTA = (props) => {
     </>
   )
 }
+
+
 CTA.defaultProps = {
-  heading1: 'Unlock 24/7 Customer Support with AI-Driven Chatbots',
+  heading1: 'Discover the Power of AI for Your Business',
   content1:
-    'Deliver exceptional customer service around the clock with our state-of-the-art AI chatbot solutions. Reduce response times and enhance customer satisfaction with instant, automated assistance.',
-  action1: 'Start Your Journey',
-}
+    'Leverage advanced AI technologies to optimize operations, improve customer experiences, and drive growth. Explore customized solutions that fit your unique business needs.',
+  action1: 'Explore More',
+};
+
 
 
 CTA.propTypes = {

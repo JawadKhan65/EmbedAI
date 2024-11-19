@@ -78,8 +78,13 @@ Phone: +92-329-7833100
         <Box position="fixed" bottom={4} right={4} zIndex={10}>
           <Button color={"white"} colorScheme={"cyan"} _hover={{
             bg: "#6690d8",
-          }} onClick={toggleChatbox} >
-            {isChatboxVisible ? 'Close' : <>
+          }}
+            borderRadius={"full"}
+            fontStyle={"normal"}
+            fontWeight={"900"}
+            fontSize={"x-large"}
+            onClick={toggleChatbox} >
+            {isChatboxVisible ? 'X' : <>
               <ChatIcon />
 
 

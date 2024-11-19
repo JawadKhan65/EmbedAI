@@ -11,16 +11,16 @@ const Steps = (props) => {
           <div className="steps-container2 thq-grid-2">
             <div className="steps-section-header">
               <h2 className="thq-heading-2">
-                Discover the Power of Our Products
+                Unlock the Full Potential of Our Solutions
               </h2>
               <p className="thq-body-large">
-                Enhance your customer support with our AI-driven chatbots that you can easily train on your unique data.
+                Leverage cutting-edge AI to optimize your operations, improve customer interactions, and drive growth.
               </p>
               <p className="thq-body-large">
-                Our solutions are designed to streamline customer interactions, reduce response times, and increase satisfaction.
+                Our solutions are customizable, designed to meet the unique needs of your business and deliver measurable results.
               </p>
               <p className="thq-body-large">
-                Whether you need support for sales, troubleshooting, or general inquiries, our customizable chatbots are here to help.
+                Whether you are improving efficiency or enhancing customer experiences, our tools are here to support your journey.
               </p>
             </div>
             <div className="steps-container3">
@@ -52,6 +52,28 @@ const Steps = (props) => {
                 </span>
                 <label className="steps-text24 thq-heading-3">04</label>
               </div>
+              {/* Additional Steps */}
+              <div className="steps-container4 thq-card">
+                <h2 className="thq-heading-2">{props.step5Title}</h2>
+                <span className="steps-text26 thq-body-small">
+                  {props.step5Description}
+                </span>
+                <label className="steps-text15 thq-heading-3">05</label>
+              </div>
+              <div className="steps-container5 thq-card">
+                <h2 className="thq-heading-2">{props.step6Title}</h2>
+                <span className="steps-text29 thq-body-small">
+                  {props.step6Description}
+                </span>
+                <label className="steps-text18 thq-heading-3">06</label>
+              </div>
+              <div className="steps-container6 thq-card">
+                <h2 className="thq-heading-2">{props.step7Title}</h2>
+                <span className="steps-text32 thq-body-small">
+                  {props.step7Description}
+                </span>
+                <label className="steps-text21 thq-heading-3">07</label>
+              </div>
             </div>
           </div>
         </div>
@@ -62,17 +84,26 @@ const Steps = (props) => {
 
 Steps.defaultProps = {
   step1Description:
-    'Unlock unprecedented customer engagement by leveraging our intelligent chatbot solutions tailored to your unique business needs. Experience seamless interactions that enhance satisfaction and build loyalty.',
+    'Transform your customer interactions with AI-powered solutions that adapt to your specific needs. Engage with customers seamlessly, improve satisfaction, and boost loyalty.',
   step2Description:
-    'Empower your team with actionable insights derived from our advanced analytics. Our AI not only learns but also adapts, ensuring you stay ahead in understanding customer preferences.',
+    'Unlock valuable insights using advanced AI analytics. Our solutions help you understand customer behavior, optimize processes, and stay ahead in an ever-changing market.',
   step3Description:
-    'Streamline operations and enhance efficiency by integrating our AI solutions into your existing workflows. Our easy-to-use tools ensure a smooth transition that maximizes productivity.',
+    'Integrate AI into your existing systems effortlessly. Our tools are designed to work with your workflows, improving efficiency and enhancing productivity without disruption.',
   step4Description:
-    'Witness measurable results with our AI-driven support system. We provide continuous monitoring and optimization to ensure your chatbot delivers the best possible service to your customers.',
-  step1Title: 'Enhance Customer Engagement',
-  step2Title: 'Gain Actionable Insights',
-  step3Title: 'Integrate Seamlessly',
-  step4Title: 'Measure Success',
+    'Measure success with data-driven metrics. Our AI continuously optimizes its performance to deliver consistent and impactful results for your business.',
+  step5Description:
+    'Automate routine tasks to increase operational efficiency. Our solutions reduce manual workloads, improve accuracy, and allow your team to focus on higher-value tasks.',
+  step6Description:
+    'Enhance decision-making with AI-powered predictive analytics. Anticipate future trends, optimize resources, and make informed decisions to stay ahead of the competition.',
+  step7Description:
+    'Ensure long-term success by continuously optimizing your AI solutions. Our platform learns from data and adapts to evolving business needs, delivering ongoing value.',
+  step1Title: 'Enhance Engagement with AI',
+  step2Title: 'Unlock Valuable Insights',
+  step3Title: 'Effortless Integration',
+  step4Title: 'Track and Optimize Performance',
+  step5Title: 'Automate Routine Tasks',
+  step6Title: 'Empower Data-Driven Decisions',
+  step7Title: 'Continuous Optimization for Success',
 }
 
 Steps.propTypes = {
@@ -80,10 +111,16 @@ Steps.propTypes = {
   step2Description: PropTypes.string,
   step3Description: PropTypes.string,
   step4Description: PropTypes.string,
+  step5Description: PropTypes.string,
+  step6Description: PropTypes.string,
+  step7Description: PropTypes.string,
   step1Title: PropTypes.string,
   step2Title: PropTypes.string,
   step3Title: PropTypes.string,
   step4Title: PropTypes.string,
+  step5Title: PropTypes.string,
+  step6Title: PropTypes.string,
+  step7Title: PropTypes.string,
 }
 
 export default Steps
