@@ -1,18 +1,6 @@
 'use client'
 import React from 'react'
-import banner1 from "../public/banners/banner1.png"
-import banner2 from "../public/banners/banner2.png"
-import banner3 from "../public/banners/banner3.png"
-import banner4 from "../public/banners/banner4.png"
-import banner5 from "../public/banners/banner5.png"
-import banner6 from "../public/banners/banner6.png"
-import banner7 from "../public/banners/banner7.png"
-import banner8 from "../public/banners/banner8.png"
-import banner9 from "../public/banners/banner9.png"
-import banner10 from "../public/banners/banner10.png"
-import banner11 from "../public/banners/banner11.png"
-import ImageGrid from './Carousel'
-import Image from 'next/image'
+
 import PropTypes from 'prop-types'
 
 const Hero = (props) => {

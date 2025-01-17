@@ -7,7 +7,7 @@ import { UserProvider } from '../../context/userdetails';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Embed AI - Comprehensive AI Solutions',
+  title: 'Embed AI',
   description: 'Embed AI offers end-to-end AI services, including customer support, business process automation, data-driven insights, predictive analytics, custom AI models, and intelligent decision-making solutions.',
   openGraph: {
     title: 'Embed AI - AI Solutions for Businesses',
