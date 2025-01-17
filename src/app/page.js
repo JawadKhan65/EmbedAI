@@ -76,23 +76,17 @@ Phone: +92-329-7833100
         <Footer />
         {/* Toggle button for Chatbox at the end of the page */}
         <Box position="fixed" bottom={4} right={4} zIndex={10}>
-          <Button color={"white"} colorScheme={"cyan"} _hover={{
-            bg: "#6690d8",
+          <Button color={"black"} bg={"white"} _hover={{
+            bg: "gray.200",
           }}
+            border={"1px solid black"}
             borderRadius={"full"}
-            fontStyle={"normal"}
-            fontWeight={"900"}
             fontSize={"x-large"}
             onClick={toggleChatbox} >
-            {isChatboxVisible ? 'X' : <>
-              <ChatIcon />
+            {isChatboxVisible ? '-' : <>
 
+              <Image src={embedai} alt="Embed AI Logo" width={36} height={36} />
 
-              <p className='ml-2'>
-                Chat with </p>
-              <div className=' ml-2 bg-white rounded-full h-6 w-6 mr-2 flex items-center justify-center'>
-                <Image src={embedai} alt="Embed AI Logo" width={24} height={24} />
-              </div>
             </>
             }
           </Button>

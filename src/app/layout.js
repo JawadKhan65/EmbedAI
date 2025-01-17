@@ -2,15 +2,14 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '../../components/navbar';
 import { ChakraProvider } from '@chakra-ui/react';
-import { mongo_connection } from '../../lib/db';
 import { UserProvider } from '../../context/userdetails';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Embed AI - Comprehensive AI Solutions for Business Automation and Insights',
+  title: 'Embed AI',
   description: 'Embed AI offers end-to-end AI services, including customer support, business process automation, data-driven insights, predictive analytics, custom AI models, and intelligent decision-making solutions.',
   openGraph: {
-    title: 'Embed AI - Complete AI Solutions for Modern Businesses',
+    title: 'Embed AI',
     description: 'Embed AI delivers a full suite of AI services: business automation, intelligent insights, customer support, predictive analytics, and custom AI solutions tailored to your needs.',
     url: 'https://embedai.io',
     site_name: 'Embed AI',
