@@ -3,14 +3,15 @@ import './globals.css';
 import Navbar from '../../components/navbar';
 import { ChakraProvider } from '@chakra-ui/react';
 import { UserProvider } from '../../context/userdetails';
+
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Embed AI',
+  title: 'Embed AI - Comprehensive AI Solutions',
   description: 'Embed AI offers end-to-end AI services, including customer support, business process automation, data-driven insights, predictive analytics, custom AI models, and intelligent decision-making solutions.',
   openGraph: {
-    title: 'Embed AI',
-    description: 'Embed AI delivers a full suite of AI services: business automation, intelligent insights, customer support, predictive analytics, and custom AI solutions tailored to your needs.',
+    title: 'Embed AI - AI Solutions for Businesses',
+    description: 'Embed AI provides automation, predictive analytics, and tailored AI services to meet your business needs.',
     url: 'https://embedai.io',
     site_name: 'Embed AI',
     images: [
@@ -18,60 +19,47 @@ export const metadata = {
         url: 'https://embedai.io/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Embed AI - Comprehensive AI Solutions for Businesses',
+        alt: 'Embed AI Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@embedai',
-    title: 'Embed AI - Your Partner in AI-Driven Transformation',
-    description: 'From automation to predictive analytics, Embed AI offers a complete range of AI services to help businesses thrive in the digital era.',
+    title: 'Embed AI - Transform Your Business with AI',
+    description: 'Embed AI delivers cutting-edge AI solutions for automation, insights, and decision-making.',
     image: 'https://embedai.io/twitter-image.png',
   },
 };
 
-export default function RootLayout({ session, children }) {
-  // mongo_connection().catch(console.error);
-
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        {/* Primary Meta Tags */}
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charSet="utf-8" />
-        <meta name="description" content="Embed AI provides comprehensive AI services: customer support, business automation, predictive analytics, and data-driven insights to optimize workflows and empower decision-making." />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content="Embed AI - Complete AI Solutions for Modern Businesses" />
-        <meta property="og:description" content="Embed AI delivers a full suite of AI services: business automation, intelligent insights, customer support, predictive analytics, and custom AI solutions tailored to your needs." />
-        <meta property="og:url" content="https://embedai.io" />
-        <meta property="og:site_name" content="Embed AI" />
-        <meta property="og:image" content="https://embedai.io/og-image.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@embedai" />
-        <meta name="twitter:title" content="Embed AI - Your Partner in AI-Driven Transformation" />
-        <meta name="twitter:description" content="From automation to predictive analytics, Embed AI offers a complete range of AI services to help businesses thrive in the digital era." />
-        <meta name="twitter:image" content="https://embedai.io/twitter-image.png" />
 
-        <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-          data-tag="font"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
-          data-tag="font"
-        />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-          data-tag="font"
-        />
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
-        />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta property="og:description" content={metadata.openGraph.description} />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:site_name" content={metadata.openGraph.site_name} />
+        <meta property="og:image" content={metadata.openGraph.images[0].url} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:site" content={metadata.twitter.site} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta name="twitter:description" content={metadata.twitter.description} />
+        <meta name="twitter:image" content={metadata.twitter.image} />
+
+        {/* Favicon and Icons */}
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -79,17 +67,39 @@ export default function RootLayout({ session, children }) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
 
-        <noscript
+        {/* Structured Data (JSON-LD) */}
+        <script
+          type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: `
-              <style>
-                @keyframes fade-in-left {
-                  0% { opacity: 0; transform: translateX(-20px); }
-                  100% { opacity: 1; transform: translateX(0); }
-                }
-              </style>
-            `,
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Embed AI',
+              url: 'https://embedai.io',
+              logo: 'https://embedai.io/og-image.png',
+              sameAs: [
+                'https://twitter.com/embedai',
+                'https://www.linkedin.com/company/embedai',
+              ],
+              description:
+                'Embed AI provides comprehensive AI services: customer support, business automation, predictive analytics, and data-driven insights.',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '123 AI Street',
+                addressLocality: 'San Francisco',
+                addressRegion: 'CA',
+                postalCode: '94105',
+                addressCountry: 'US',
+              },
+            }),
           }}
+        />
+
+        {/* External Stylesheets */}
+        <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
         />
       </head>
       <body className={inter.className}>
