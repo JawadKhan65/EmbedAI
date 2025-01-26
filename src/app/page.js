@@ -1,21 +1,11 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import Navbar from '../../components/navbar';
 import Hero from '../../components/hero';
-import Features1 from '../../components/features1';
-import CTA from '../../components/cta';
-import Features2 from '../../components/features2';
-import Pricing from '../../components/pricing';
-import Steps from '../../components/steps';
-import Testimonial from '../../components/testimonial';
-import Contact from '../../components/contact';
-import Footer from '../../components/footer';
-import RenderDashboard from '../../components/Dashboard';
+
 import Chatbox from '../../components/ChatBox';
 import { Box, Button } from '@chakra-ui/react';
 import { ChatIcon, CloseIcon } from '@chakra-ui/icons';
-import ImageGrid from '../../components/Carousel';
 import embedai from '../../public/embed-ai.png';
 import Image from 'next/image';
 import Section2 from '../../components/Section2';

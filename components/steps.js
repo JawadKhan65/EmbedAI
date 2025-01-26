@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Box, Heading } from '@chakra-ui/react'
 
 const Steps = (props) => {
   return (
@@ -9,10 +10,10 @@ const Steps = (props) => {
       <div className="steps-container1 thq-section-padding">
         <div className="steps-max-width thq-section-max-width">
           <div className="steps-container2 thq-grid-2">
-            <div className="steps-section-header">
-              <h2 className="thq-heading-2">
+            <Box bg={"blue.700"} className="steps-section-header">
+              <Heading className="">
                 Unlock the Full Potential of Our Solutions
-              </h2>
+              </Heading>
               <p className="thq-body-large">
                 Leverage cutting-edge AI to optimize your operations, improve customer interactions, and drive growth.
               </p>
@@ -22,7 +23,7 @@ const Steps = (props) => {
               <p className="thq-body-large">
                 Whether you are improving efficiency or enhancing customer experiences, our tools are here to support your journey.
               </p>
-            </div>
+            </Box>
             <div className="steps-container3">
               <div className="steps-container4 thq-card">
                 <h2 className="thq-heading-2">{props.step1Title}</h2>

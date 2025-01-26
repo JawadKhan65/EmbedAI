@@ -47,18 +47,16 @@ const ImageCarousel = () => {
                 autoPlay
                 interval={3000}
                 transitionTime={500}
-
-
             >
                 {imageSources.map((src, index) => (
                     <div key={index}>
                         <Image
                             src={src}
                             alt={`Image ${index + 1}`}
+                            width={600} // Set a width for proper optimization
+                            height={400} // Set a height for proper optimization
                             style={{
-                                width: '200px',
-                                height: '400px', // Set a fixed height for the carousel images
-                                objectFit: 'contain'
+                                objectFit: 'contain', // Keeps aspect ratio while fitting the image in its container
                             }}
                         />
                     </div>

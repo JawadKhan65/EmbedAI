@@ -20,6 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import logo from '../public/embed-ai.png';
+import Link from 'next/link';
 
 const Navbar = (props) => {
   const pathname = usePathname();
@@ -64,10 +65,10 @@ const Navbar = (props) => {
             >
               {props.link1}
             </Text>
-            <Text mx={4} cursor="pointer" onClick={() => handleScroll('about')}>
+            {/* <Text mx={4} cursor="pointer" onClick={() => handleScroll('about')}>
               {props.link2}
-            </Text>
-            <Text mx={4} cursor="pointer" onClick={() => handleScroll('carousel-container')}>
+            </Text> */}
+            <Text as={Link} href={"/services"} mx={4} cursor="pointer" onClick={() => handleScroll('carousel-container')}>
               {props.link3}
             </Text>
             <Text
@@ -127,20 +128,22 @@ const Navbar = (props) => {
               >
                 {props.link1}
               </Text>
-              <Text _hover={{
+              {/* <Text _hover={{
                 color: "cyan.800",
                 transform: "scale(1.1)",
                 transition: "all 0.3s transform",
 
               }} cursor="pointer" onClick={() => handleScroll('about')}>
                 {props.link2}
-              </Text>
-              <Text _hover={{
-                color: "cyan.800",
-                transform: "scale(1.1)",
-                transition: "all 0.3s transform",
+              </Text> */}
+              <Text
+                as={Link} href={"/services"}
+                _hover={{
+                  color: "cyan.800",
+                  transform: "scale(1.1)",
+                  transition: "all 0.3s transform",
 
-              }} cursor="pointer" onClick={() => handleScroll('carousel-container')}>
+                }} cursor="pointer" onClick={() => handleScroll('carousel-container')}>
                 {props.link3}
               </Text>
               <Text _hover={{

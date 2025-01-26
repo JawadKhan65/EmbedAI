@@ -5,7 +5,7 @@ import load_gif from "../../public/embedai-gif.gif";
 
 const Loading = () => {
     return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
             <Image
                 src={load_gif}
                 alt="Loading animation"

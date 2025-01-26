@@ -24,10 +24,10 @@
   --dl-space-space-unit: 16px;
   --dl-size-size-xxlarge: 288px;
   --dl-size-size-maxwidth: 1400px;
-  --dl-color-theme-accent1: #6eedba;
-  --dl-color-theme-accent2: #68d7ce;
+  --dl-color-theme-accent1: #202020;
+  --dl-color-theme-accent2: #22394f;
   --dl-radius-radius-round: 50%;
-  --dl-color-theme-primary1: #3b9c87;
+  --dl-color-theme-primary1: #042d24;
   --dl-color-theme-primary2: #6690d8;
   --dl-space-space-halfunit: 8px;
   --dl-space-space-sixunits: 96px;
@@ -205,7 +205,7 @@
 
 .thq-heading-2 {
   font-size: 35px;
-  font-family: STIX Two Text;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: 600;
   line-height: 1.5;
 }
@@ -1278,6 +1278,10 @@
   position: sticky;
   align-items: flex-start;
   flex-direction: column;
+  background: #383b53;
+  padding: 15px;
+  border-radius: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .steps-actions {
