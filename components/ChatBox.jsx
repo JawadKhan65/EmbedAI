@@ -74,7 +74,7 @@ const Chatbox = ({ context }) => {
             borderTopColor={'#64ede5'}
             borderLeftColor={'blue.300'}
             borderBottomColor={'blue.300'}
-            bg={'gray.50'}
+            bg={'black'}
             spacing={4}
             align="stretch"
             w={{ base: '90vw', md: '41vw', lg: "21vw" }} // Responsive width
@@ -86,14 +86,14 @@ const Chatbox = ({ context }) => {
         >
             <Box m={2} display={'flex'} flexDirection={'column'} justifyContent={'center'} alignItems={'center'}>
                 <Box onClick={() => window.open(process.env.BASE_URL, '_blank')} cursor={'pointer'} display={'flex'}>
-                    <Text textAlign={'unset'} mt={3} mr={2} fontSize={{ base: 'md', md: 'sm' }} fontWeight={800}>Powered By</Text>
+                    <Text color={"white"} textAlign={'unset'} mt={3} mr={2} fontSize={{ base: 'md', md: 'sm' }} fontWeight={800}>Powered By</Text>
                     <Image height={30} alt='EmbedAI' src={logo} />
                 </Box>
                 <Text m={1} fontSize="sm" color={'gray'}>Democratizing Human-Machine Interaction</Text>
             </Box>
             <Box
-                bg="gray.50"
-                borderRadius="md"
+                // bgGradient="linear(to-tr, cyan,cyan.600, cyan.900)"
+
                 p={4}
                 flex={1}
                 overflowY="auto"
@@ -102,8 +102,8 @@ const Chatbox = ({ context }) => {
                 {messages.length === 0 ? (
                     <Box height={'30vh'} display={'flex'} justifyContent={'center'} alignItems={'center'}>
                         <VStack>
-                            <Text m={4} padding={8} textAlign={'center'}>
-                                Chat with our AI-based Support Here
+                            <Text color={"white"} fontWeight={700} m={4} padding={8} textAlign={'center'}>
+                                Chat with EAI
                             </Text>
                         </VStack>
                     </Box>
@@ -145,7 +145,7 @@ const Chatbox = ({ context }) => {
                     border={'1px'}
                     borderColor={'blue.600'}
                     type="submit"
-                    _hover={{ bg: '#64ede5', color: 'black' }}
+                    _hover={{ bg: '#64edf9', color: 'black' }}
                     bg="#64edd9"
                     height={10}
                     width={10}

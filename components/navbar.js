@@ -1,145 +1,167 @@
 'use client';
-import logo from '../public/embed-ai.png';
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
 import { useRouter, usePathname } from 'next/navigation';
+import {
+  Box,
+  Flex,
+  Text,
+  Image,
+  IconButton,
+  Button,
+  useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  VStack,
+} from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import logo from '../public/embed-ai.png';
 
 const Navbar = (props) => {
   const pathname = usePathname();
   const router = useRouter();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showReg, setShowReg] = useState(true);
   const [isLogged, setLogged] = useState(false);
-  const [disabled, setDisabled] = useState(true);
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-
-
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const handleRegister = () => {
-    router.push('/register');
-  };
-
-  const handleScrollPricing = () => {
-    const pricing = document.getElementsByClassName('pricing-pricing23')[0];
-    if (pricing) {
-      pricing.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollContact = () => {
-    const contact = document.getElementsByClassName('contact-contact20')[0];
-    if (contact) {
-      contact.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollServices = () => {
-    const services = document.getElementsByClassName('carousel-container')[0];
-    if (services) {
-      services.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollAbout = () => {
-    const about = document.getElementsByClassName('about')[0];
-    if (about) {
-      about.scrollIntoView({ behavior: 'smooth' });
+  const handleScroll = (className) => {
+    const element = document.getElementsByClassName(className)[0];
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   useEffect(() => {
-    // Set `disabled` state based on pathname
-    setDisabled(pathname.includes('/dashboard'));
     setShowReg(pathname !== '/register');
   }, [pathname]);
 
-
-
   return (
-    <header className="navbar-container">
-      <header data-thq="thq-navbar" className="navbar-navbar-interactive">
-        <Image
-          onClick={() => router.push('/')}
-          height={60}
-          width={60}
-          alt={props.logoAlt}
-          src={logo}
-          className="navbar-image1"
-        />
+    <Box height={"4rem"}
+
+
+      opacity={0.92}
+      bg={"black"} color={"white"} border={"none"} px={4} py={3} position="sticky" top="0" zIndex="1000" width={"full"}>
+      <Flex justifyContent="space-between" alignItems="center">
+        {/* Logo */}
+        <Flex onClick={() => router.push('/')} cursor="pointer">
+          <Image src={logo.src} alt={props.logoAlt} boxSize="50px" />
+
+        </Flex>
+
+        {/* Desktop Menu */}
         {showReg && (
-          <>
-            <div data-thq="thq-navbar-nav" className="navbar-desktop-menu">
-              <nav className="navbar-links1">
-                {pathname !== '/' && (
-                  <span onClick={() => router.push('/')} className="thq-link thq-body-small">{props.link1}</span>
-                )}
-                <span onClick={handleScrollAbout} className="thq-link thq-body-small">{props.link2}</span>
-                <span onClick={handleScrollServices} className="thq-link thq-body-small">{props.link3}</span>
-                <span onClick={handleScrollContact} className="thq-link thq-body-small">{props.link4}</span>
-                {/* <span onClick={handleScrollPricing} className="thq-link thq-body-small">{props.link5}</span> */}
-                {isLogged && <span onClick={() => router.push('/dashboard')} className="thq-link thq-body-small">Dashboard</span>}
-              </nav>
+          <Flex display={{ base: 'none', md: 'flex' }} alignItems="center">
+            <Text
+              mx={4}
+              cursor="pointer"
+              onClick={() => pathname !== '/' && router.push('/')}
+            >
+              {props.link1}
+            </Text>
+            <Text mx={4} cursor="pointer" onClick={() => handleScroll('about')}>
+              {props.link2}
+            </Text>
+            <Text mx={4} cursor="pointer" onClick={() => handleScroll('carousel-container')}>
+              {props.link3}
+            </Text>
+            <Text
 
-            </div>
-            <div data-thq="thq-burger-menu" className="navbar-burger-menu" onClick={toggleMenu}>
-              <svg viewBox="0 0 1024 1024" className="navbar-icon1">
-                <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>
-              </svg>
-            </div>
-            <div data-thq="thq-mobile-menu" className={`navbar-mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-              <div className="navbar-nav">
-                <div className="navbar-top">
-                  <Image
-                    height={60}
-                    width={60}
-                    alt={props.logoAlt}
-                    src={logo}
-                    className="navbar-logo"
-                  />
-                  <div data-thq="thq-close-menu" className="navbar-close-menu" onClick={toggleMenu}>
-                    <svg viewBox="0 0 1024 1024" className="navbar-icon3">
-                      <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"></path>
-                    </svg>
-                  </div>
-                </div>
-                <nav className="navbar-links2">
-                  {pathname !== '/' && (
-                    <span className="thq-link thq-body-small">{props.link1}</span>
-                  )}
-                  <span onClick={handleScrollAbout} className="thq-link thq-body-small">{props.link2}</span>
-                  <span onClick={handleScrollServices} className="thq-link thq-body-small">{props.link3}</span>
-                  <span onClick={handleScrollContact} className="thq-link thq-body-small">{props.link4}</span>
-                  {/* <span onClick={handleScrollPricing} className="thq-link thq-body-small">{props.link5}</span> */}
-                  {isLogged && (
-                    <span onClick={() => router.push('/dashboard')} className="thq-link thq-body-small">Dashboard</span>
-                  )}
-                </nav>
-              </div>
-              <div className="navbar-buttons2">
-                <div id="google_translate_element"></div>
+              mx={4} cursor="pointer"
+              onClick={() => window.location.href = `mailto:embedai.io@gmail.com`}
 
-              </div>
-              {/* <div className="navbar-buttons2">
-                {isLogged ? (
-                  <button onClick={handleLogout} className="thq-button-filled">Logout</button>
-                ) : (
-                  <>
-                    <button onClick={handleRegister} className="thq-button-filled">{props.action1}</button>
-                    <button onClick={handleRegister} className="thq-button-outline">{props.action2}</button>
-                  </>
-                )}
-              </div> */}
-            </div>
-          </>
+            >
+              {props.link4}
+            </Text>
+
+          </Flex>
         )}
-      </header>
-    </header>
+
+        {/* Hamburger Menu for Mobile */}
+        {showReg && (
+          <IconButton
+            bg={"transparent"}
+            color={"white"}
+            aria-label="Open menu"
+            icon={<HamburgerIcon />}
+            borderRadius={"full"}
+            _hover={{ bg: 'cyan.800' }}
+            display={{ base: 'flex', md: 'none' }}
+            onClick={onOpen}
+            position={"relative"}
+          />
+        )}
+      </Flex>
+
+      {/* Drawer for Mobile Menu */}
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
+        <DrawerOverlay />
+        <DrawerContent bg={"black"} color={"white"}>
+          <DrawerCloseButton />
+          <DrawerHeader>
+            <Flex alignItems="center">
+              <Image src={logo.src} alt={props.logoAlt} boxSize="50px" />
+
+            </Flex>
+          </DrawerHeader>
+
+          <DrawerBody>
+            <VStack spacing={4} align="start">
+              <Text
+                _hover={{
+                  color: "cyan.800",
+                  transform: "scale(1.1)",
+                  transition: "all 0.3s transform",
+
+                }}
+                cursor="pointer"
+                onClick={() => {
+                  router.push('/');
+                  onClose();
+                }}
+              >
+                {props.link1}
+              </Text>
+              <Text _hover={{
+                color: "cyan.800",
+                transform: "scale(1.1)",
+                transition: "all 0.3s transform",
+
+              }} cursor="pointer" onClick={() => handleScroll('about')}>
+                {props.link2}
+              </Text>
+              <Text _hover={{
+                color: "cyan.800",
+                transform: "scale(1.1)",
+                transition: "all 0.3s transform",
+
+              }} cursor="pointer" onClick={() => handleScroll('carousel-container')}>
+                {props.link3}
+              </Text>
+              <Text _hover={{
+                color: "cyan.800",
+                transform: "scale(1.1)",
+                transition: "all 0.3s transform",
+
+              }} cursor="pointer"
+                onClick={() => window.location.href = `mailto:embedai.io@gmail.com`}>
+                {props.link4}
+
+              </Text>
+              {isLogged && (
+                <Text cursor="pointer" onClick={() => router.push('/dashboard')}>
+                  Dashboard
+                </Text>
+              )}
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+    </Box>
   );
 };
 
@@ -149,9 +171,6 @@ Navbar.defaultProps = {
   link2: 'About',
   link3: 'Services',
   link4: 'Contact',
-  link5: 'Pricing',
-  action1: 'Register',
-  action2: 'Login',
 };
 
 Navbar.propTypes = {
@@ -160,9 +179,6 @@ Navbar.propTypes = {
   link2: PropTypes.string,
   link3: PropTypes.string,
   link4: PropTypes.string,
-  link5: PropTypes.string,
-  action1: PropTypes.string,
-  action2: PropTypes.string,
 };
 
 export default Navbar;

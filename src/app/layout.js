@@ -3,6 +3,8 @@ import './globals.css';
 import Navbar from '../../components/navbar';
 import { ChakraProvider } from '@chakra-ui/react';
 import { UserProvider } from '../../context/userdetails';
+import Link from 'next/link';
+import Footer from '../../components/footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -95,18 +97,22 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* External Stylesheets */}
-        <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
-        <link
+        {/* External Stylesheets
+        <Link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css" />
+        <Link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
-        />
+        /> */}
       </head>
       <body className={inter.className}>
         <ChakraProvider>
+
           <UserProvider>
             <Navbar />
+
             {children}
+
+            <Footer />
           </UserProvider>
         </ChakraProvider>
       </body>

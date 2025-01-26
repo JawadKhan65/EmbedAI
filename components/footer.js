@@ -1,165 +1,95 @@
-'use client'
+'use client';
 
-import React from 'react'
-import logo from '../public/embed-ai-full.png'
-import PropTypes from 'prop-types'
-import Image from 'next/image'
-import { Box, Text, Divider } from '@chakra-ui/react'
-import Link from 'next/link'
-import { FaLinkedin } from 'react-icons/fa'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Image from 'next/image';
+import { Box, Flex, Text, Divider } from '@chakra-ui/react';
+import { FaLinkedin } from 'react-icons/fa';
+import { EmailIcon } from '@chakra-ui/icons';
+import logo from '../public/embed-ai.png';
 
 const Footer = (props) => {
-  const handleRegister = () => {
-    router.push('/register');
-  };
-  let data = new Date()
-  let ano = data.getFullYear()
-
-  const handleScrollPricing = () => {
-    const pricing = document.getElementsByClassName('pricing-pricing23')[0];
-    if (pricing) {
-      pricing.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollContact = () => {
-    const contact = document.getElementsByClassName('contact-contact20')[0];
-    if (contact) {
-      contact.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollServices = () => {
-    const services = document.getElementsByClassName('steps-container1')[0];
-    if (services) {
-      services.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const handleScrollAbout = () => {
-    const about = document.getElementsByClassName('about')[0];
-    if (about) {
-      about.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const currentYear = new Date().getFullYear();
 
   return (
-    <>
-      <footer className="footer-footer1 thq-section-padding">
-        <div className="footer-max-width thq-section-max-width">
-          <div className="footer-content">
-            <div className="footer-newsletter">
-              <Image
-                height={100}
-                width={100}
-                alt={props.logoAlt}
-                src={logo}
-                className="footer-image1"
-              />
-            </div>
-            <div className="footer-links">
-              <div className="footer-column1">
-                <strong className="thq-body-large footer-column1-title">
-                  {props.column1Title}
-                </strong>
-                <div className="footer-footer-links1">
-                  {/* <a
+    <Box bg="black" color="white" py={6}>
+      {/* Top Row: Logo, LinkedIn, and Email */}
+      <Flex justifyContent="space-between" alignItems="center" px={8}>
+        <Image src={logo} alt={props.logoAlt} width={50} height={50} />
 
-                    onClick={handleScrollPricing}
-                    className="thq-body-small "
-                  >
-                    {props.link1}
-                  </a> */}
-                  <a
-                    onClick={handleScrollContact}
-                    className="thq-body-small"
-                  >
-                    {props.link2}
-                  </a>
-                  <a
-                    onClick={handleScrollServices}
-                    className="thq-body-small"
-                  >
-                    {props.link3}
-                  </a>
-                  <a
-                    onClick={handleScrollAbout}
-                    className="thq-body-small"
-                  >
-                    {props.link4}
-                  </a>
-                  {/* <a
-                    onClick={handleRegister}
-                    className="thq-body-small"
-                  >
-                    {props.link5}
-                  </a> */}
-                </div>
-              </div>
+        <Flex gap={6} alignItems="center">
+          <FaLinkedin
+            size={24}
+            cursor="pointer"
+            onClick={() => window.open('https://www.linkedin.com/company/105419355/', '_blank')}
+          />
+          <EmailIcon
+            w={6}
+            h={6}
+            cursor="pointer"
+            onClick={() => window.location.href = `mailto:${props.email1}`}
+          />
+        </Flex>
+      </Flex>
 
-              <div className="footer-column3">
-                <strong className="thq-body-large footer-social-link1-title">
-                  {props.socialLinkTitleCategory}
-                </strong>
-                <div className="footer-social-links">
-                  <div className="footer-link1">
+      <Divider mt={6} borderColor="gray.700" />
 
-                    <FaLinkedin />
-                    <Link target='_blank' href={'https://www.linkedin.com/company/105419355/admin/settings/jobs/'} className="thq-body-small hover:cursor-pointer">LinkedIn</Link>
-                  </div>
-                  {/* <div className="footer-link2">
-                    <svg
-                      viewBox="0 0 877.7142857142857 1024"
-                      className="thq-icon-small"
-                    >
-                      <path d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"></path>
-                    </svg>
-                    <span className="thq-body-small hover:cursor-pointer">Instagram</span>
-                  </div> */}
+      {/* Middle Row: Pages */}
+      <Flex justifyContent="space-around" mt={6} px={8} flexWrap="wrap" gap={4}>
+        <Text
+          cursor="pointer"
+          onClick={() => document.getElementsByClassName('pricing-pricing23')[0]?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          {props.link1}
+        </Text>
+        <Text
+          cursor="pointer"
+          onClick={() => document.getElementsByClassName('contact-contact20')[0]?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          {props.link2}
+        </Text>
+        <Text
+          cursor="pointer"
+          onClick={() => document.getElementsByClassName('steps-container1')[0]?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          {props.link3}
+        </Text>
+        <Text
+          cursor="pointer"
+          onClick={() => document.getElementsByClassName('about')[0]?.scrollIntoView({ behavior: 'smooth' })}
+        >
+          {props.link4}
+        </Text>
+      </Flex>
 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <Divider mt={4} border={"gray.900"}></Divider>
-        <Box mt={10} p={5} >
-          <Text mb={2} fontWeight={700}>Designed By EmbedAI |
-            &copy;{ano} {props.copyright}
-          </Text>
+      <Divider mt={6} borderColor="gray.700" />
 
-
-        </Box>
-      </footer>
-    </>
+      {/* Bottom Row: Copyright */}
+      <Box textAlign="center" mt={6} px={8}>
+        <Text fontSize="sm" fontWeight={300}>
+          Designed by EmbedAI | Founded <b>2024</b> | &copy; {currentYear} {props.copyright}
+        </Text>
+      </Box>
+    </Box>
   );
 };
 
 Footer.defaultProps = {
-  column1Title: 'Services',
-  column2Title: 'Solutions',
-  logoAlt: 'image',
-  link1: 'Pricing',
+  logoAlt: 'EmbedAI Logo',
   link2: 'Contact',
   link3: 'Services',
   link4: 'About',
-  link5: 'Register',
-
-  socialLinkTitleCategory: 'Social',
+  email1: 'contact@embedai.com',
   copyright: 'All Rights Reserved.',
 };
 
 Footer.propTypes = {
-  column1Title: PropTypes.string,
-  column2Title: PropTypes.string,
   logoAlt: PropTypes.string,
   link1: PropTypes.string,
   link2: PropTypes.string,
   link3: PropTypes.string,
   link4: PropTypes.string,
-  link5: PropTypes.string,
-
-  socialLinkTitleCategory: PropTypes.string,
+  email1: PropTypes.string,
   copyright: PropTypes.string,
 };
 

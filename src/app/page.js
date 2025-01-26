@@ -14,10 +14,21 @@ import Footer from '../../components/footer';
 import RenderDashboard from '../../components/Dashboard';
 import Chatbox from '../../components/ChatBox';
 import { Box, Button } from '@chakra-ui/react';
-import { ChatIcon } from '@chakra-ui/icons';
+import { ChatIcon, CloseIcon } from '@chakra-ui/icons';
 import ImageGrid from '../../components/Carousel';
 import embedai from '../../public/embed-ai.png';
 import Image from 'next/image';
+import Section2 from '../../components/Section2';
+import Section3 from '../../components/Section3';
+import Section4 from '../../components/Section4';
+import Section5 from '../../components/Section5';
+import Section6 from '../../components/Section6';
+import Section7 from '../../components/Section7';
+import Section8 from '../../components/Section8';
+import Section9 from '../../components/Section9';
+import ClientReviews from '../../components/ClientsReviews';
+import Section10 from '../../components/Section10';
+
 const Home = (props) => {
   const [isChatboxVisible, setChatboxVisible] = useState(false); // State for visibility
   const context = `
@@ -62,31 +73,30 @@ Phone: +92-329-7833100
       <Head>
         <title>Embed AI</title>
       </Head>
-      <div className="home-container">
-        {/* <Navbar /> */}
+      <div>
         <Hero />
-        <Features1 />
-        <CTA />
-        <ImageGrid />
+        <Section2 />
+        <Section3 />
+        <Section4 />
+        <Section5 />
+        <Section6 />
+        <Section7 />
+        <Section8 />
+        <Section9 />
+        <ClientReviews />
+        <Section10 />
 
-        {/* <Pricing /> */}
-        <Steps />
-        <Testimonial />
-        <Contact />
-        <Footer />
         {/* Toggle button for Chatbox at the end of the page */}
-        <Box position="fixed" bottom={4} right={4} zIndex={10}>
+        <Box marginLeft={5} position="fixed" bottom={4} zIndex={1000}>
           <Button color={"black"} bg={"white"} _hover={{
             bg: "gray.200",
           }}
             border={"1px solid black"}
             borderRadius={"full"}
-            fontSize={"x-large"}
             onClick={toggleChatbox} >
-            {isChatboxVisible ? '-' : <>
+            {isChatboxVisible ? <CloseIcon fontWeight={"bold"} fontSize={"smaller"} color={"blue"} /> : <>
 
-              <Image src={embedai} alt="Embed AI Logo" width={36} height={36} />
-
+              <ChatIcon />
             </>
             }
           </Button>
@@ -96,11 +106,14 @@ Phone: +92-329-7833100
       <style jsx>
         {`
           .home-container {
-            width: 100%;
+            min-width: 100vw;
             display: flex;
             min-height: 100vh;
             align-items: center;
             flex-direction: column;
+            margin: 0;
+
+            
           }
         `}
       </style>

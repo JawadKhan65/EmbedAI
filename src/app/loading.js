@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import load_gif from "../../public/embedai-gif.gif";
 
+
 const Loading = () => {
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
