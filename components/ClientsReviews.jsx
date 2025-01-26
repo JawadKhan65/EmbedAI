@@ -8,7 +8,7 @@ const ClientReviews = () => {
     const clients = [
         { id: 1, name: "WordFinder PR", logo: "/images/wordfinder.jpeg" },
         { id: 2, name: "Motion Visuals", logo: "/images/motion-visual.png" },
-        { id: 3, name: "Client C", logo: "/images/Upchatwebp.webp" },
+        { id: 3, name: "Client Alt", logo: "/images/Upchat.webp" },
         { id: 4, name: "Client D", logo: "/images/1xz.png" },
         { id: 5, name: "Client E", logo: "/images/claude.png" },
         // Add more client logos here
