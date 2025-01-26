@@ -46,6 +46,7 @@ const Section8 = () => {
     return (
         <Box
             height={"100vh"}
+            width={"100vw"}
             bg={"#ebeeee"}
             display={"flex"}
             flexDirection={"column"}

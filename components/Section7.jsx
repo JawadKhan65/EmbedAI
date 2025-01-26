@@ -7,6 +7,7 @@ const Section7 = () => {
                 height={"100vh"}
                 bg={"#faf9f9"}
 
+                width={"100vw"}
 
 
             >

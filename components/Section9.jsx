@@ -10,7 +10,9 @@ const Section9 = () => {
     const [isAnalyticsVisible, setAnalyticsVisible] = useState(false);
 
     return (
-        <Box height={"100vh"} bg={"#ebeeee"}>
+        <Box height={"100vh"} bg={"#ebeeee"}
+            width={"100vw"}>
+
             <Box
                 display={"flex"}
                 flexDirection={{ base: "column", md: "row" }}

@@ -6,7 +6,7 @@ const Section4 = () => {
         <>
             <Box
                 height={"100vh"}
-                width={"100%"}
+                width={"100vw"}
                 bg={"#faf9f9"}
             >
                 <Box

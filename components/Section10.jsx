@@ -5,6 +5,7 @@ const Section10 = () => {
     return (
         <Box
             height={"100vh"}
+            width={"100vw"}
             bgImage={"url('/images/pexels-googledeepmind-18069211.jpg')"}
             bgAttachment={{ base: "scroll", md: "scroll" }}
             bgPosition={"center"}

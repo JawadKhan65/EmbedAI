@@ -12,7 +12,10 @@ const Footer = (props) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Box bg="black" color="white" py={6}>
+    <Box
+      width={"100vw"}
+
+      bg="black" color="white" py={6}>
       {/* Top Row: Logo, LinkedIn, and Email */}
       <Flex justifyContent="space-between" alignItems="center" px={8}>
         <Image src={logo} alt={props.logoAlt} width={50} height={50} />

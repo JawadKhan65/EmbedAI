@@ -5,7 +5,7 @@ const Section6 = () => {
     return (
         <Box
             height={{ base: "auto", lg: "100vh" }} // Auto height for smaller devices
-            width={"auto"}
+            width={"100vw"}
             bg={"#faf9f9"}
         >
             <Box

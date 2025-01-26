@@ -42,10 +42,11 @@ const Navbar = (props) => {
 
   return (
     <Box height={"4rem"}
+      width={"100vw"}
 
 
       opacity={0.92}
-      bg={"black"} color={"white"} border={"none"} px={4} py={3} position="sticky" top="0" zIndex="1000" width={"full"}>
+      bg={"black"} color={"white"} border={"none"} px={4} py={3} position="sticky" top="0" zIndex="1000" >
       <Flex justifyContent="space-between" alignItems="center">
         {/* Logo */}
         <Flex onClick={() => router.push('/')} cursor="pointer">

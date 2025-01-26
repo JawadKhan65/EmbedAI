@@ -11,7 +11,7 @@ const Section2 = (props) => {
                 bgSize="cover"
                 bgPosition="center"
                 height={"100vh"}
-                width={"100%"}
+                width={"100vw"}
                 color={"white"}
                 position={"relative"}
             >

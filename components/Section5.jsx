@@ -5,7 +5,7 @@ const Section5 = () => {
     return (
         <Box
             height={"100vh"}
-            width={"auto"}
+            width={"100vw"}
             bg={"#faf9f9"}
         >
             <Box
