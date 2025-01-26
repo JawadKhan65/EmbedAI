@@ -103,7 +103,7 @@ const ClientReviews = () => {
                                 ))}
                             </Box>
                             <Text fontSize="lg" fontStyle="italic" mb={4}>
-                                "{review.review}"
+                                &quot;{review.review}&quot;
                             </Text>
                             <Text mt={4} fontWeight="bold" fontSize="lg">
                                 - {review.client}
